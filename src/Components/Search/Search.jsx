@@ -11,37 +11,35 @@ function Search() {
       <p>
         <p>
           <CiLocationOn color="red" size={19} />
-          <span style={{ fontSize: "18px", fontWeight: "bold" }}>Location</span>
+          {" "}<span style={searchStyles.iconSpanStyle}>Location</span>
         </p>
         <input
           type="text"
-          className="p-3"
+        //   className="p-3"
           placeholder="where are you going?"
           style={searchStyles.inputStyle}
         />
       </p>
       <p>
         <p>
-          <GiPathDistance color="red" size={19} />
-          <span style={{ fontSize: "18px", fontWeight: "bold" }}>Distance</span>
+          <GiPathDistance color="red" size={19} />{" "}
+          <span style={searchStyles.iconSpanStyle}>Distance</span>
         </p>
         <input
           type="number"
-          className="p-3"
+        //   className="p-3"
           placeholder="Distance (in km)"
           style={searchStyles.inputStyle}
         />
       </p>
       <p>
         <p>
-          <GoPeople color="red" size={19} />
-          <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-            Max People
-          </span>
+          <GoPeople color="red" size={19} />{" "}
+          <span style={searchStyles.iconSpanStyle}>Max People</span>
         </p>
         <input
           type="number"
-          className="p-3"
+        //   className="p-3"
           placeholder="0"
           style={searchStyles.inputStyle}
         />
