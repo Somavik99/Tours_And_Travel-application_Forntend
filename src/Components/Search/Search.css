@@ -1,8 +1,8 @@
 .search__container {
-  margin-left: 18%;
+  margin-left: 12%;
   /* border: 1px solid black; */
-  width: 40vw;
-  padding: 10px;
+  width: 57vw;
+  padding: 10px 30px;
   gap: 10px;
   border-radius: 50px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
@@ -10,13 +10,17 @@
 
 .search__container  input[type="text"] {
   border:none;
+  padding: 1vw;
+  width:15vw;
 }
 
 .search__container input[type="number"]{
     border-top: none;
     border-left: 2px solid rgba(158, 158, 158, 0.81);
     border-bottom: none;
-    border-right: none
+    border-right: none;
+    padding: 1vw;
+    width:15vw;
 }
 
 

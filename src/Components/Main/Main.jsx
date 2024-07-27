@@ -7,6 +7,9 @@ function Main() {
     <div>
       <Search/>
     </div>
+    <div>
+        
+    </div>
     </>
   )
 }
