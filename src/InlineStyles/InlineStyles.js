@@ -1,8 +1,10 @@
-let inputStyle = {
+export let searchStyles = {
+  inputStyle: {
     fontSize: "16px",
     fontWeight: "bold",
-    border: "none",
+    borderBottom: "none",
+    borderTop: "none",
+    borderRight: "none",
     outline: "none",
-  };
-
-  export {inputStyle}
+  },
+};

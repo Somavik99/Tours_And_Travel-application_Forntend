@@ -3,7 +3,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { GiPathDistance } from "react-icons/gi";
 import { GoPeople } from "react-icons/go";
 import "./Search.css";
-import { inputStyle } from "../../InlineStyles/InlineStyles";
+import { searchStyles } from "../../InlineStyles/InlineStyles";
 
 function Search() {
   return (
@@ -17,7 +17,7 @@ function Search() {
           type="text"
           className="p-3"
           placeholder="where are you going?"
-          style={inputStyle}
+          style={searchStyles.inputStyle}
         />
       </p>
       <p>
@@ -29,7 +29,7 @@ function Search() {
           type="number"
           className="p-3"
           placeholder="Distance (in km)"
-          style={inputStyle}
+          style={searchStyles.inputStyle}
         />
       </p>
       <p>
@@ -43,7 +43,7 @@ function Search() {
           type="number"
           className="p-3"
           placeholder="0"
-          style={inputStyle}
+          style={searchStyles.inputStyle}
         />
       </p>
       <div>
