@@ -16,9 +16,9 @@ function Home() {
               style={{
                 background: "orange",
                 padding: "5px 15px",
-                borderRadius: "15px",
-                fontSize:"18px",
-                fontFamily:"sans-serif"
+                borderRadius: "30px",
+                fontSize:"14px",
+                fontFamily: "Playwrite BE WAL ", 
               }}
             >
               Know Before You Go
