@@ -4,6 +4,7 @@ import HeroImage1 from "../../assets/hero-img01.jpg";
 import HeroVideo from "../../assets/hero-video.mp4";
 import HeroImage2 from "../../assets/hero-img02.jpg";
 import "./Home.css";
+import Main from "../Main/Main";
 
 function Home() {
   return (
@@ -17,9 +18,9 @@ function Home() {
                 background: "orange",
                 padding: "5px 15px",
                 borderRadius: "30px",
-                fontSize:"14px",
-                fontFamily: "Playwrite BE WAL ", 
-                fontStyle:"italic"
+                fontSize: "14px",
+                fontFamily: "Playwrite BE WAL ",
+                fontStyle: "italic",
               }}
             >
               Know Before You Go
@@ -27,7 +28,7 @@ function Home() {
             <img src={worldPng} alt="world" style={{ width: "40px" }} />
           </p>
           <h1 style={{ width: "600px", fontSize: "55px" }}>
-            Traveling open the doors to creating
+            Traveling opens the doors to creating
             <span style={{ color: "orange" }}> memories</span>
           </h1>
           <p
@@ -56,7 +57,7 @@ function Home() {
         </div>
       </div>
       <div className="Main__container">
-
+        <Main />
       </div>
     </>
   );
