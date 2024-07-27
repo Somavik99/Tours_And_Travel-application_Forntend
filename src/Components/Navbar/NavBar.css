@@ -1,0 +1,17 @@
+.Nav_elements{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.List_elements{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    width: 800px;
+    margin: 5px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 500;
+}
