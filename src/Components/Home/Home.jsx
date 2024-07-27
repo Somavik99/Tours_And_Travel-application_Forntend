@@ -19,6 +19,7 @@ function Home() {
                 borderRadius: "30px",
                 fontSize:"14px",
                 fontFamily: "Playwrite BE WAL ", 
+                fontStyle:"italic"
               }}
             >
               Know Before You Go
@@ -53,6 +54,9 @@ function Home() {
           </video>
           <img src={HeroImage2} alt="HeroImage" className="Hero__image2" />
         </div>
+      </div>
+      <div className="Main__container">
+
       </div>
     </>
   );
