@@ -1,0 +1,32 @@
+.Main__body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-top: 10%;
+ 
+}
+
+.Main__body .Main__bodyCard {
+  width: 400px;
+  font-size: 25px;
+  border-radius: 12px;
+  border-right: 2px solid orange;
+  border-bottom: 2px solid orange;
+  padding: 5px;
+}
+
+.Main__body .Main__bodyCard .img__container img {
+  width: 75px;
+}
+
+.Main__body .Main__bodyCard .img__container {
+  background: orange;
+  width: 100px;
+  height: 100px;
+  align-items: center;
+  padding: 8px;
+  border-radius: 50px;
+  text-align: center;
+}
