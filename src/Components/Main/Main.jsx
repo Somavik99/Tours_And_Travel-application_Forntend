@@ -30,7 +30,7 @@ function Main() {
               <img src={weatherIcon} alt="weather" />
             </p>
             <h3>Calculate weather</h3>
-            <p>
+            <p style={{ color: "gray" }}>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit
               illo ad facere assumenda, dignissimos amet quae expedita nisi.
               Molestias, doloribus.
@@ -41,10 +41,9 @@ function Main() {
           <div>
             <p className="img__container">
               <img src={tourGuideIcon} alt="tourGuide" />
-              
             </p>
             <h3>Best tour guide</h3>
-            <p>
+            <p style={{ color: "gray" }}>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit
               illo ad facere assumenda, dignissimos amet quae expedita nisi.
               Molestias, doloribus.
@@ -57,7 +56,7 @@ function Main() {
               <img src={customizationIcon} alt="customization" />
             </p>
             <h3>Customization</h3>
-            <p>
+            <p style={{ color: "gray" }}>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit
               illo ad facere assumenda, dignissimos amet quae expedita nisi.
               Molestias, doloribus.
