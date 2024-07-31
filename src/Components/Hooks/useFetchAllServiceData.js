@@ -8,37 +8,37 @@ function useFetchDataServices(URL) {
     Loading: false,
   });
 
-  let cancelToken = axios.CancelToken.source();
-  async function fetchAllApi() {
-    try {
-      const responseApi = await axios.get(URL, {
-        cancelToken: cancelToken.token,
-      });
-      if (!responseApi.ok) {
-        return setApiData({
-          dataArray: [],
-          Error: "Error fetching data...!",
-          Loading: true,
-        });
-      }
-      setApiData({
-        dataArray: responseApi.data,
-        Error: null,
-        Loading: false,
-      });
-    } catch (error) {
-      if (axios.isCancel(error)) {
-        return error.message;
-      }
-
-      console.log(error);
-    }
-  }
-
   useEffect(() => {
+    const Controller = new AbortController();
+
+    const { signal } = Controller;
+
+    async function fetchAllApi() {
+      try {
+        const response = await axios.get(URL, { signal: signal });
+        if (!response.ok) {
+          return setApiData((prevData) => ({
+            ...prevData,
+            Error: "Error fetching data...!",
+            Loading: true,
+          }));
+        }
+        setApiData({
+          dataArray: responseApi.data,
+          Error: null,
+          Loading: false,
+        });
+      } catch (error) {
+        if (axios.isCancel(error)) {
+          console.log(error.message);
+        }
+      }
+    }
+
     fetchAllApi();
     return () => {
-      cancelToken.cancel();
+      // Cleanup function
+      Controller.abort();
     };
   }, [URL]);
 
