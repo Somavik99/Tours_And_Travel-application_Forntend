@@ -10,7 +10,7 @@ import { BASE_URI } from "../URL/configFile";
 
 function Home() {
   const { apiDataObject } = useFetchDataServices(
-    `${BASE_URI} /tours/getAllToursData`
+    `${BASE_URI}/tours/getAllToursData`
   );
 
   console.log(apiDataObject.dataArray);
