@@ -24,7 +24,7 @@ function useFetchDataServices(URL) {
           }));
         }
         setApiData({
-          dataArray: responseApi.data,
+          dataArray: response.data,
           Error: null,
           Loading: false,
         });
