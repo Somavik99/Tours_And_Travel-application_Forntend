@@ -29,9 +29,7 @@ function useFetchDataServices(URL) {
           Loading: false,
         });
       } catch (error) {
-        if (axios.isCancel(error)) {
-          console.log(error.message);
-        }
+        console.log(error.message);
       }
     }
 
@@ -42,6 +40,7 @@ function useFetchDataServices(URL) {
     };
   }, [URL]);
 
+  //   console.log(apiData)
   return { apiDataObject: apiData };
 }
 
