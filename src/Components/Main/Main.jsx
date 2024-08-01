@@ -3,8 +3,20 @@ import weatherIcon from "../../assets/weather.png";
 import tourGuideIcon from "../../assets/guide.png";
 import customizationIcon from "../../assets/customization.png";
 import "./Main.css";
+import useFetchDataServices from "../Hooks/useFetchAllServiceData";
+import { BASE_URI } from "../URL/configFile";
+import Cards from "../Cards/Cards";
+import { MoonLoader } from "react-spinners";
 
 function Main() {
+  const { apiDataObject } = useFetchDataServices(
+    `${BASE_URI}/tours/getAllToursData`
+  );
+
+  if (!Array.isArray(apiDataObject.dataArray)) {
+    return null;
+  }
+
   return (
     <>
       <div>
@@ -63,6 +75,21 @@ function Main() {
             </p>
           </div>
         </div>
+      </div>
+      <div style={{ marginTop: "10%" }}>
+        {apiDataObject.Error === null && apiDataObject.Loading === false ? (
+          apiDataObject.dataArray?.map((data, index) => {
+            return (
+              <div key={index}>
+                <Cards />
+              </div>
+            );
+          })
+        ) : (
+          <div>
+            <MoonLoader color="#ff0000" size={10} />{" "}
+          </div>
+        )}
       </div>
     </>
   );

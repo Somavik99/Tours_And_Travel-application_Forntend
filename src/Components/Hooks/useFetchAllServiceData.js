@@ -23,7 +23,7 @@ function useFetchDataServices(URL = String) {
             Loading: true,
           }));
         }
-
+        console.log(response.data.data);
         return setApiData({
           dataArray: response.data.data,
           Error: null,

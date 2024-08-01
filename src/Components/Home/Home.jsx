@@ -5,15 +5,11 @@ import HeroVideo from "../../assets/hero-video.mp4";
 import HeroImage2 from "../../assets/hero-img02.jpg";
 import "./Home.css";
 import Main from "../Main/Main";
-import useFetchDataServices from "../Hooks/useFetchAllServiceData";
-import { BASE_URI } from "../URL/configFile";
+
 
 function Home() {
-  const { apiDataObject } = useFetchDataServices(
-    `${BASE_URI}/tours/getAllToursData`
-  );
 
-  console.log(apiDataObject.dataArray);
+
 
   return (
     <>
