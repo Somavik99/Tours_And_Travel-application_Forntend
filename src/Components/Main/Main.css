@@ -5,7 +5,6 @@
   align-items: center;
   gap: 60px;
   margin-top: 10%;
- 
 }
 
 .Main__body .Main__bodyCard {
@@ -29,4 +28,11 @@
   padding: 8px;
   border-radius: 50px;
   text-align: center;
+}
+
+.Cards__cont {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
 }

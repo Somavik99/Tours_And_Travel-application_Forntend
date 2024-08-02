@@ -1,0 +1,24 @@
+.Card__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 15px;
+  border: 1px solid black;
+  width: 350px;
+  height: 400px;
+  border-radius: 5px;
+}
+
+.Card__container .card_img__container img {
+  width: 350px;
+  background-size: cover;
+  object-fit: cover; 
+  border-radius: 5px;
+
+}
+
+.Card__container .card_img__container {
+   border: 1px solid red;
+  background-position: top;
+}

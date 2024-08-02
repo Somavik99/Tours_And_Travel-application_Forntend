@@ -76,18 +76,18 @@ function Main() {
           </div>
         </div>
       </div>
-      <div style={{ marginTop: "10%" }}>
+      <div style={{ marginTop: "10%" }} className="Cards__cont">
         {apiDataObject.Error === null && apiDataObject.Loading === false ? (
           apiDataObject.dataArray?.map((data, index) => {
             return (
               <div key={index}>
-                <Cards />
+                <Cards data={data} />
               </div>
             );
           })
         ) : (
-          <div>
-            <MoonLoader color="#ff0000" size={10} />{" "}
+          <div style={{ height: "200px", width: "200ox", textAlign: "center" }}>
+            <MoonLoader color="#ff0000" />
           </div>
         )}
       </div>
