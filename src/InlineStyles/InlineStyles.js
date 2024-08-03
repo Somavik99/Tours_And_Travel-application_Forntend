@@ -15,5 +15,17 @@ export const MainStyles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+  },
+  Explore:{
+    marginTop: "5%",
+    marginLeft: "2%",
+    width: "550px",
+    position: "relative",
+  },
+  Serve:{
+    fontSize: "15px",
+    fontStyle: "italic",
+    color: "red",
+    fontFamily: "Playwrite BE WAL ",
   }
 }

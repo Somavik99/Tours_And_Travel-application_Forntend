@@ -9,6 +9,7 @@ import Cards from "../Cards/Cards";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import Loader from "../Loader/Loader";
 import { MainStyles } from "../../InlineStyles/InlineStyles";
+import experienceImg from "../../assets/experience.png";
 
 function Main() {
   const { apiDataObject } = useFetchDataServices(
@@ -27,12 +28,7 @@ function Main() {
       <div className="Main__body">
         <div>
           <p
-            style={{
-              fontSize: "15px",
-              fontStyle: "italic",
-              color: "red",
-              fontFamily: "Playwrite BE WAL ",
-            }}
+            style={MainStyles.Serve}
           >
             What we serve
           </p>
@@ -78,14 +74,7 @@ function Main() {
           </div>
         </div>
       </div>
-      <div
-        style={{
-          marginTop: "8%",
-          marginLeft: "2%",
-          width: "550px",
-          position: "relative",
-        }}
-      >
+      <div style={MainStyles.Explore}>
         <span className="Explore">Explore All</span>
 
         <MdOutlineKeyboardArrowRight size={30} className="Explore__icon" />
@@ -110,6 +99,32 @@ function Main() {
           <Loader />
         </div>
       )}
+      <section className="Main__experience">
+        <section className="Experience__details">
+          <div>Experience</div>
+          <h1>With all our experience we will serve you</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
+            molestiae perferendis. Deserunt possimus nisi quod deleniti
+            exercitationem.
+          </p>
+          <div className="exp__data">
+            <section >
+              <h3>12k+</h3>
+              <p>Successful Trips</p>
+            </section>
+            <section>
+              <h3>2k+</h3>
+              <p>Regular Clients</p>
+            </section>
+            <section>
+              <h3>15</h3>
+              <p>Years of experience</p>
+            </section>
+          </div>
+        </section>
+        <img src={experienceImg} alt="experience" className="exp__image" />
+      </section>
     </>
   );
 }
