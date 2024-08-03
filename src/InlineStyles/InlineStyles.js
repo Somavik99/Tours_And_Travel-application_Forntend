@@ -36,5 +36,15 @@ export const MainStyles = {
     textAlign: "center",
     fontFamily: "Playwrite BE WAL ",
     fontSize: "18px",
+  }, 
+  GalleryTag:{
+    padding: "18px",
+    background: "orange",
+    width: "180px",
+    fontFamily: "Playwrite BE WAL ",
+    fontSize: "18px",
+    textAlign: "center",
+    fontWeight: "600",
+    borderRadius: "50px",
   }
 }

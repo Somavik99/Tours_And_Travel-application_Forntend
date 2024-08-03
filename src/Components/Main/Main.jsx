@@ -10,6 +10,14 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import Loader from "../Loader/Loader";
 import { MainStyles } from "../../InlineStyles/InlineStyles";
 import experienceImg from "../../assets/experience.png";
+import galleryImage1 from "../../assets/gallery-01.jpg";
+import galleryImage2 from "../../assets/gallery-02.jpg";
+import galleryImage3 from "../../assets/gallery-03.jpg";
+import galleryImage4 from "../../assets/gallery-04.jpg";
+import galleryImage5 from "../../assets/gallery-05.jpg";
+import galleryImage6 from "../../assets/gallery-06.jpg";
+import galleryImage7 from "../../assets/gallery-07.jpg";
+import galleryImage8 from "../../assets/gallery-08.jpg";
 
 function Main() {
   const { apiDataObject } = useFetchDataServices(
@@ -97,13 +105,9 @@ function Main() {
       )}
       <section className="Main__experience">
         <section className="Experience__details">
-          <div
-            style={MainStyles.ExperienceTag}
-          >
-            Experience
-          </div>
+          <div style={MainStyles.ExperienceTag}>Experience</div>
           <h1>With all our experience we will serve you</h1>
-          <p >
+          <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
             molestiae perferendis. Deserunt possimus nisi quod deleniti
             exercitationem.
@@ -119,11 +123,41 @@ function Main() {
             </section>
             <section>
               <h3>15</h3>
-              <p>Years of experience</p>
+              <p>Years experience</p>
             </section>
           </div>
         </section>
         <img src={experienceImg} alt="experience" className="exp__image" />
+      </section>
+      <section style={{ marginLeft: "5%" }}>
+        <p style={MainStyles.GalleryTag}>Gallery</p>
+        <h1>Visit Our Customer Tour Gallery</h1>
+      </section>
+      <section className="Main__gallery">
+        <div className="Masonry__img">
+          <img src={galleryImage2} alt="" />
+        </div>
+        <div className="Masonry__img">
+          <img src={galleryImage5} alt="" />
+        </div>
+        <div className="Masonry__img">
+          <img src={galleryImage3} alt="" />
+        </div>
+        <div className="Masonry__img">
+          <img src={galleryImage1} alt="" />
+        </div>
+        <div className="Masonry__img">
+          <img src={galleryImage7} alt="" />
+        </div>
+        <div className="Masonry__img">
+          <img src={galleryImage4} alt="" />
+        </div>
+        <div className="Masonry__img">
+          <img src={galleryImage6} alt="" />
+        </div>
+        <div className="Masonry__img">
+          <img src={galleryImage8} alt="" />
+        </div>
       </section>
     </>
   );

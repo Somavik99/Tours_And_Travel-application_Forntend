@@ -1,4 +1,4 @@
-import NavBar from "../Navbar/NavBar";
+
 import worldPng from "../../assets/world.png";
 import HeroImage1 from "../../assets/hero-img01.jpg";
 import HeroVideo from "../../assets/hero-video.mp4";
@@ -13,7 +13,7 @@ function Home() {
 
   return (
     <>
-      <NavBar />
+     
       <div className="Hero__container">
         <div>
           <p>

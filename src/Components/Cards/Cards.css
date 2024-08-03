@@ -40,7 +40,7 @@
 .card_details__container:hover {
   height: 100%;
   top: 0;
-  background-color: rgba(47, 106, 255, 0.272);
+  background-color: rgba(111, 111, 197, 0.282);
   backdrop-filter: blur(10px);
 }
 
