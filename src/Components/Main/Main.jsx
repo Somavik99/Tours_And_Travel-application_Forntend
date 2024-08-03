@@ -135,28 +135,28 @@ function Main() {
       </section>
       <section className="Main__gallery">
         <div className="Masonry__img">
-          <img src={galleryImage2} alt="" />
+          <img src={galleryImage2} alt="galleryImage2" />
         </div>
         <div className="Masonry__img">
-          <img src={galleryImage5} alt="" />
+          <img src={galleryImage5} alt="galleryImage5" />
         </div>
         <div className="Masonry__img">
-          <img src={galleryImage3} alt="" />
+          <img src={galleryImage3} alt="galleryImage3" />
         </div>
         <div className="Masonry__img">
-          <img src={galleryImage1} alt="" />
+          <img src={galleryImage1} alt="galleryImage1" />
         </div>
         <div className="Masonry__img">
-          <img src={galleryImage7} alt="" />
+          <img src={galleryImage7} alt="galleryImage7" />
         </div>
         <div className="Masonry__img">
-          <img src={galleryImage4} alt="" />
+          <img src={galleryImage4} alt="galleryImage4" />
         </div>
         <div className="Masonry__img">
-          <img src={galleryImage6} alt="" />
+          <img src={galleryImage6} alt="galleryImage6" />
         </div>
         <div className="Masonry__img">
-          <img src={galleryImage8} alt="" />
+          <img src={galleryImage8} alt="galleryImage8" />
         </div>
       </section>
     </>
