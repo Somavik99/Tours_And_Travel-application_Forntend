@@ -27,11 +27,7 @@ function Main() {
       </div>
       <div className="Main__body">
         <div>
-          <p
-            style={MainStyles.Serve}
-          >
-            What we serve
-          </p>
+          <p style={MainStyles.Serve}>What we serve</p>
           <h1>We offer our best services</h1>
         </div>
         <div className="Main__bodyCard">
@@ -101,15 +97,19 @@ function Main() {
       )}
       <section className="Main__experience">
         <section className="Experience__details">
-          <div>Experience</div>
+          <div
+            style={MainStyles.ExperienceTag}
+          >
+            Experience
+          </div>
           <h1>With all our experience we will serve you</h1>
-          <p>
+          <p >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
             molestiae perferendis. Deserunt possimus nisi quod deleniti
             exercitationem.
           </p>
           <div className="exp__data">
-            <section >
+            <section>
               <h3>12k+</h3>
               <p>Successful Trips</p>
             </section>

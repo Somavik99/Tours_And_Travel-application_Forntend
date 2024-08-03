@@ -69,4 +69,53 @@
   transform: scale(1.2);
 }
 
+.Main__experience {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 120px;
+  margin: 10% 30px;
+}
+
+.Main__experience .Experience__details div {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.Main__experience .Experience__details div ~ h1 {
+  width: 30rem;
+  /* border: 1px solid; */
+}
+
+.Main__experience .Experience__details div ~ h1 ~ p {
+  width: 450px;
+  /* border: 1px solid; */
+}
+
+.Main__experience .exp__data{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 100px;
+}
+
+.Main__experience .exp__data section h3{
+  padding: 30px 12px;
+  background: rgb(255, 111, 0);
+  width:100px;
+  height: 100px;
+  text-align: center;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 3px;
+}
+
+.Main__experience .exp__data section h3~p{
+  width:100px;
+  margin-left: -10px;
+}
 

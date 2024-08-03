@@ -27,5 +27,14 @@ export const MainStyles = {
     fontStyle: "italic",
     color: "red",
     fontFamily: "Playwrite BE WAL ",
+  },
+  ExperienceTag:{
+    padding: "10px",
+    background: "orange",
+    width: "150px",
+    borderRadius: "50px",
+    textAlign: "center",
+    fontFamily: "Playwrite BE WAL ",
+    fontSize: "18px",
   }
 }
