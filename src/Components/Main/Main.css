@@ -34,5 +34,39 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  margin-left: 50px;
 }
+
+.Explore {
+  font-size: 25px;
+  background: orange;
+  margin: 10px;
+  padding: 9px 12px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.Explore__icon {
+  margin-left: -20px;
+  transition: all ease 0.3s;
+  background: rgb(255, 255, 255);
+  border-radius: 50px;
+  color: rgb(0, 0, 0);
+  position: absolute;
+  top: 5px;
+  border: 1px solid orange;
+  /* border: 1px solid black; */
+}
+
+.Explore:hover {
+  color: black;
+}
+
+.Explore__icon:hover {
+  transform: scale(1.2);
+}
+
+

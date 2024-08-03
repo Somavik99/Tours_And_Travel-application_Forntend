@@ -6,11 +6,13 @@ import "./Main.css";
 import useFetchDataServices from "../Hooks/useFetchAllServiceData";
 import { BASE_URI } from "../URL/configFile";
 import Cards from "../Cards/Cards";
-import { MoonLoader } from "react-spinners";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import Loader from "../Loader/Loader";
+import { MainStyles } from "../../InlineStyles/InlineStyles";
 
 function Main() {
   const { apiDataObject } = useFetchDataServices(
-    `${BASE_URI}/tours/getAllToursData`
+    `${BASE_URI}/tours/getAllToursData?limit=10&skip=0`
   );
 
   if (!Array.isArray(apiDataObject.dataArray)) {
@@ -76,21 +78,38 @@ function Main() {
           </div>
         </div>
       </div>
-      <div style={{ marginTop: "10%" }} className="Cards__cont">
-        {apiDataObject.Error === null && apiDataObject.Loading === false ? (
-          apiDataObject.dataArray?.map((data, index) => {
+      <div
+        style={{
+          marginTop: "8%",
+          marginLeft: "2%",
+          width: "550px",
+          position: "relative",
+        }}
+      >
+        <span className="Explore">Explore All</span>
+
+        <MdOutlineKeyboardArrowRight size={30} className="Explore__icon" />
+
+        <h1>Our Featured Tours</h1>
+      </div>
+
+      {/* Card Container */}
+
+      {apiDataObject.Error === null && apiDataObject.Loading === false ? (
+        <div className="Cards__cont">
+          {apiDataObject.dataArray?.map((data, index) => {
             return (
               <div key={index}>
                 <Cards data={data} />
               </div>
             );
-          })
-        ) : (
-          <div style={{ height: "200px", width: "200ox", textAlign: "center" }}>
-            <MoonLoader color="#ff0000" />
-          </div>
-        )}
-      </div>
+          })}
+        </div>
+      ) : (
+        <div style={MainStyles.Loader}>
+          <Loader />
+        </div>
+      )}
     </>
   );
 }

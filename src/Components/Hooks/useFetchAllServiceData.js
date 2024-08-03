@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-function useFetchDataServices(URL = String) {
+function useFetchDataServices(URL) {
   const [apiData, setApiData] = useState({
     dataArray: [],
     Error: null,
@@ -38,11 +38,17 @@ function useFetchDataServices(URL = String) {
     };
 
     fetchAllApi();
+
+    const LoadingTime = setTimeout(() => {
+      return apiData.Loading === true;
+    }, 800);
+
     return () => {
       // Cleanup function
       cancelToken.cancel();
+      clearTimeout(LoadingTime);
     };
-  }, [URL]);
+  }, [URL,apiData.Loading]);
 
   //   console.log(apiData)
   return { apiDataObject: apiData };

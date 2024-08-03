@@ -1,24 +1,39 @@
-import { CiLocationOn } from "react-icons/ci";
+import { FaLocationDot } from "react-icons/fa6";
 import { LiaRupeeSignSolid } from "react-icons/lia";
+import { GiArchiveResearch } from "react-icons/gi";
 import "./Cards.css";
 
 function Cards({ data }) {
   return (
     <div className="Card__container">
-      <div className="card_img__container">
-        <img src={data.photo} alt={data.title} />
-      </div>
+      <img src={data.photo} alt={data.title} />
+
       <div className="card_details__container">
-        <div>
-          <CiLocationOn /> <span>{data.city}</span>
+        <div className="featured">
+          {data.featured === true ? "Featured" : null}
         </div>
-        <div>{data.title}</div>
-        <div>
-          <LiaRupeeSignSolid /> <span>{data.price}/per person</span>
+        <div style={{ marginBottom: "10px" }}>
+          <span className="Icon">
+            <FaLocationDot color="white" style={{ fontWeight: "800" }} />
+          </span>
+          <span>{data.city}</span>
         </div>
-        <div>
-          <button>Book Now</button>
+        <div
+          style={{ marginBottom: "20px", fontWeight: "600", margin: "15px 0" }}
+        >
+          <span className="Icon">
+            <GiArchiveResearch color="white" style={{ fontWeight: "800" }} />
+          </span>
+          <span>{data.title}</span>
         </div>
+        <div style={{ marginTop: "10px" }}>
+          <span className="Icon">
+            <LiaRupeeSignSolid color="white" style={{ fontWeight: "800" }} />
+          </span>
+          <span>{data.price}/per person</span>
+        </div>
+
+        <button>Book Now</button>
       </div>
     </div>
   );
