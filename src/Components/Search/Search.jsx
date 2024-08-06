@@ -125,9 +125,9 @@ function Search() {
           </button>
         </div>
       </div>
-      {!modalIsOpen ? (
+      {modalIsOpen === true ? (
         <Modal
-          data={filteredData}
+          searchedData={filteredData}
           setModalIsOpen={() => setModalIsOpen(false)}
         />
       ) : (

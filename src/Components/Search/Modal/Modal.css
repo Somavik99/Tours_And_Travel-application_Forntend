@@ -1,8 +1,55 @@
-.Modal__container{
-    position: fixed;
-    background: rgba(33, 33, 33, 0.442);
-    backdrop-filter: blur(10px);
-    height: 100%;
-    width: 100%;
-    z-index: 10;
+.Modal__container {
+  position: fixed;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Modal__container .Modal__body {
+  height: 50vh;
+  width: 50vw;
+  background: rgba(255, 255, 255, 0.413);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.Modal__container .Modal__body .close__btn {
+  float: right;
+  padding: 10px;
+  font-size: 25px;
+  font-weight: 800;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  background-image: linear-gradient(
+    to left bottom,
+    #ff7a25,
+    #fd8632,
+    #fc913e,
+    #fa9b4b,
+    #f9a559
+  );
+  color: white;
+  transition: all ease-out 0.3s;
+}
+
+.Modal__container .Modal__body .close__btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.Modal__container .Modal__body .Modal__cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
