@@ -1,0 +1,8 @@
+.Modal__container{
+    position: fixed;
+    background: rgba(33, 33, 33, 0.442);
+    backdrop-filter: blur(10px);
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+}
