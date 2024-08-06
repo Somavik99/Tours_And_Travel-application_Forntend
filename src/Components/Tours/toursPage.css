@@ -1,5 +1,5 @@
-.Tours__container .Tours__header-image{
-    position: relative;
+.Tours__container .Tours__header-image {
+  position: relative;
 }
 
 .Tours__container .Tours__header-image div ~ img {
@@ -8,26 +8,27 @@
   object-fit: cover;
 }
 
-
-.Tours__container .Tours__header-image div{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    background: rgba(0, 0, 0, 0.541);
+.Tours__container .Tours__header-image div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.541);
 }
 
-.Tours__container .Tours__header-image div h1{
-    color: white;
-    font-size:70px;
-    margin-top: 15%;
-    text-align: center;
+.Tours__container .Tours__header-image div h1 {
+  color: white;
+  font-size: 70px;
+  margin-top: 15%;
+  text-align: center;
 }
 
-
-.Tours__Cards{
-    display: grid;
-    justify-content: space-evenly;
-    grid-template-columns:  repeat(4,1fr);
-    margin: 50px;
+.Tours__Cards {
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(4, 2rem);
+  row-gap: 30px;
+  margin-top: 50px;
+  margin-left: -120px;
+  margin-right: 150px;
 }

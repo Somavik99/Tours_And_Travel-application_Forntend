@@ -2,6 +2,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { LiaRupeeSignSolid } from "react-icons/lia";
 import { GiArchiveResearch } from "react-icons/gi";
 import "./Cards.css";
+import { Link } from "react-router-dom";
 
 function Cards({ data }) {
   return (
@@ -24,7 +25,19 @@ function Cards({ data }) {
           <span className="Icon">
             <GiArchiveResearch color="white" style={{ fontWeight: "800" }} />
           </span>
-          <span>{data.title}</span>
+          <span>
+            <Link
+              to={data._id}
+              className="All__Link"
+              style={{
+                textDecoration: "none",
+                color: "white",
+                transition: " all 0.3s  ease",
+              }}
+            >
+              {data.title}
+            </Link>
+          </span>
         </div>
         <div style={{ marginTop: "10px" }}>
           <span className="Icon">
