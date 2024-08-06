@@ -62,7 +62,7 @@ function Search() {
         searchInput.Distance !== "" &&
         searchInput.maxPeople !== ""
       ) {
-        console.log(filterData);
+        // console.log(filterData);
         setModalIsOpen(true);
         return setFilteredData(filterData);
       }
