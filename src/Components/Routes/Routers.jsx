@@ -13,6 +13,7 @@ function Routers() {
         <Route path="/" element={<Home />} />
         <Route path="/getalltours" element={<ToursPage />} />
         <Route path="/getalltours/:id" element={<SingleTourData/>} />
+        <Route path="/:id" element={<SingleTourData/>} />
       </Routes>
       <Footer />
     </>
