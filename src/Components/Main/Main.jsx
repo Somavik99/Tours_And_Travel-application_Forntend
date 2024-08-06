@@ -88,7 +88,7 @@ function Main() {
 
       {/* Card Container */}
 
-      {apiDataObject.Error === null && apiDataObject.Loading === false ? (
+      {apiDataObject.dataArray.length !== 0 ? (
         <div className="Cards__cont">
           {apiDataObject.dataArray?.map((data, index) => {
             return (
@@ -99,9 +99,18 @@ function Main() {
           })}
         </div>
       ) : (
-        <div style={MainStyles.Loader}>
+        <section
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "600px",
+            flexDirection: "column",
+          }}
+        >
           <Loader />
-        </div>
+          <h1>Loading...!</h1>
+        </section>
       )}
       <section className="Main__experience">
         <section className="Experience__details">

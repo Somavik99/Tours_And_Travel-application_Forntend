@@ -1,6 +1,7 @@
 import tourImage from "../../assets/tour.jpg";
 import Cards from "../Cards/Cards";
 import useFetchDataServices from "../Hooks/useFetchAllServiceData";
+import Loader from "../Loader/Loader";
 import Search from "../Search/Search";
 import { BASE_URI } from "../URL/configFile";
 import "./toursPage.css";
@@ -18,16 +19,29 @@ function ToursPage() {
         </div>
         <img src={tourImage} alt="tourImage" />
       </div>
-      <div style={{marginTop:"5%"}}>
+      <div style={{ marginTop: "5%" }}>
         <Search />
       </div>
-      <div className="Tours__Cards">
-        {apiDataObject.dataArray.length > 0
-          ? apiDataObject.dataArray?.map((data, index) => {
-              return <Cards data={data} key={index} />;
-            })
-          : null}
-      </div>
+      {apiDataObject.dataArray.length !== 0 ? (
+        <div className="Tours__Cards">
+          {apiDataObject.dataArray?.map((data, index) => {
+            return <Cards data={data} key={index} />;
+          })}
+        </div>
+      ) : (
+        <section
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "600px",
+            flexDirection:"column"
+          }}
+        >
+          <Loader />
+          <h1>Loading...!</h1>
+        </section>
+      )}
     </div>
   );
 }
