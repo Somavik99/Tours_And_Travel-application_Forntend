@@ -32,10 +32,12 @@
 
 .Cards__cont {
   display: grid;
+  box-sizing: border-box;
   justify-content: center;
   align-items: center;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 25rem);
   margin-left: 50px;
+  row-gap: -50px;
 }
 
 .Explore {

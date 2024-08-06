@@ -11,6 +11,7 @@ function Routers() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/getalltours" element={<ToursPage />} />
+        <Route path="/singletourdata/:id" />
       </Routes>
       <Footer/>
     </>

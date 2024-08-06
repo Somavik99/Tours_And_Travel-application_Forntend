@@ -21,7 +21,7 @@ import galleryImage8 from "../../assets/gallery-08.jpg";
 
 function Main() {
   const { apiDataObject } = useFetchDataServices(
-    `${BASE_URI}/tours/getAllToursData?limit=10&skip=0`
+    `${BASE_URI}/tours/getAllToursData?limit=8&skip=0`
   );
 
   if (!Array.isArray(apiDataObject.dataArray)) {
