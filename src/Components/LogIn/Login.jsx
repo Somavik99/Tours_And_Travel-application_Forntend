@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/Context";
 import { BASE_URI } from "../URL/configFile";
@@ -9,7 +9,7 @@ function Login() {
     password: "",
   });
 
-  const { dispatch } = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ function Login() {
     try {
       const resp = await fetch(`${BASE_URI}/authorizations/userLogin`, {
         method: "POST",
-        headers: { "Content-type": "application/json" },
+        headers: { "Content-Type": "application/json" },
         credentials: "include",
         body: JSON.stringify(loginCredentials),
       });
@@ -40,11 +40,18 @@ function Login() {
         role: result.role,
         token: result.token,
       });
-      navigate("/");
     } catch (error) {
       dispatch({ type: "LOGIN_FAILURE", payload: error.message });
     }
   }
+
+  useEffect(() => {
+    if (!user) {
+      return navigate("/logIn");
+    } else {
+      return navigate("/");
+    }
+  }, [navigate, user]);
 
   return (
     <form>

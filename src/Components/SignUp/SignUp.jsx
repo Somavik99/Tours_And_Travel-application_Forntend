@@ -22,7 +22,7 @@ function SignUp() {
     try {
       const resp = await fetch(`${BASE_URI}/authorizations/userRegistration`, {
         method: "POST",
-        headers: { "Content-type": "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(credentials),
       });
       const result = await resp.json();
@@ -62,7 +62,9 @@ function SignUp() {
         value={credentials.phone}
         onChange={(e) => handleChange(e)}
       />
-      <button onClick={handleFormSubmit} type="submit">Sign Up</button>
+      <button onClick={handleFormSubmit} type="submit">
+        Sign Up
+      </button>
     </form>
   );
 }
