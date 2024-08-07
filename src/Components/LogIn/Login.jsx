@@ -5,8 +5,8 @@ import { BASE_URI } from "../URL/configFile";
 
 function Login() {
   const [loginCredentials, setLoginCredentials] = useState({
-    email: undefined,
-    password: undefined,
+    email: "",
+    password: "",
   });
 
   const { dispatch } = useContext(AuthContext);
@@ -50,11 +50,13 @@ function Login() {
     <form>
       <input
         type="email"
+        name="email"
         value={loginCredentials.email}
         onChange={handleChange}
       />
       <input
         type="password"
+        name="password"
         value={loginCredentials.password}
         onChange={handleChange}
       />

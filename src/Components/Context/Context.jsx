@@ -3,7 +3,7 @@ import { createContext } from "react";
 
 const initialState = {
   user:
-    localStorage.getItem("user") !== undefined
+    localStorage.getItem("user") !== null
       ? JSON.parse(localStorage.getItem("user"))
       : null,
   loading: false,

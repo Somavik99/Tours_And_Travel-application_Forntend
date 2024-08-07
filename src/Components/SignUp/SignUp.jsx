@@ -4,10 +4,10 @@ import { BASE_URI } from "../URL/configFile";
 
 function SignUp() {
   const [credentials, setCredentials] = useState({
-    name: undefined,
-    email: undefined,
-    phone: undefined,
-    password: undefined,
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
   });
 
   const navigate = useNavigate();
@@ -40,21 +40,25 @@ function SignUp() {
     <form>
       <input
         type="text"
+        name="name"
         value={credentials.name}
         onChange={(e) => handleChange(e)}
       />
       <input
         type="email"
+        name="email"
         value={credentials.email}
         onChange={(e) => handleChange(e)}
       />
       <input
         type="password"
+        name="password"
         value={credentials.password}
         onChange={(e) => handleChange(e)}
       />
       <input
         type="number"
+        name="phone"
         value={credentials.phone}
         onChange={(e) => handleChange(e)}
       />
