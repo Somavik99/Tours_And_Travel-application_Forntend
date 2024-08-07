@@ -17,20 +17,40 @@ function SignUp() {
     setCredentials((prevState) => ({ ...prevState, [name]: value }));
   }
 
+  const RegularExp = {
+    nameExp: new RegExp(/^[A-Za-z]+([\\ A-Za-z]+)*/),
+    emailExp: new RegExp(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),
+    passwordExp: new RegExp(
+      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+    ),
+  };
+
   async function handleFormSubmit(e) {
     e.preventDefault();
     try {
-      const resp = await fetch(`${BASE_URI}/authorizations/userRegistration`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(credentials),
-      });
-      const result = await resp.json();
+      if (
+        RegularExp.nameExp.test(credentials.name) &&
+        RegularExp.emailExp.test(credentials.email) &&
+        RegularExp.passwordExp.test(credentials.password) &&
+        credentials.phone.split("").length === 10
+      ) {
+        const resp = await fetch(
+          `${BASE_URI}/authorizations/userRegistration`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(credentials),
+          }
+        );
+        const result = await resp.json();
 
-      if (!result.ok) {
-        console.log(result.message);
+        if (!result.ok) {
+          console.log(result.message);
+        }
+        navigate("/logIn");
+      } else {
+        console.log("Requirements not matched...!");
       }
-      navigate("/logIn");
     } catch (error) {
       console.error(error.message);
     }
