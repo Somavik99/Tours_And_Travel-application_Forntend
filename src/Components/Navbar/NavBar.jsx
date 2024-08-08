@@ -9,18 +9,21 @@ function NavBar() {
         <img src={AchiversItLogo} alt="AchiversIt" />
       </div>
       <ul className="List_elements">
-        <li>Home</li>
-        <li>Tours</li>
         <li>
-          <Link
-            to={"/logIn"}
-            style={{ textDecoration: "none", color: "black" }}
-          >
+          <Link to={"/"} className="Route__link">
+            Home
+          </Link>
+        </li>
+        <li>  <Link to={"/getalltours"} className="Route__link">
+            Tours
+          </Link></li>
+        <li>
+          <Link to={"/logIn"} className="Route__link">
             Login
           </Link>
         </li>
         <li>
-          <Link to={"/signUp"} style={{ textDecoration: "none", color: "black" }}>
+          <Link to={"/signUp"} className="Route__link1">
             Register
           </Link>
         </li>
