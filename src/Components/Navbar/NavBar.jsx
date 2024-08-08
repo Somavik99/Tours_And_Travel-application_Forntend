@@ -4,13 +4,14 @@ import "./NavBar.css";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../Context/Context";
 import avatar from "../../assets/avatar.jpg";
+import { ACTIONS } from "../Context/Actions";
 
 function NavBar() {
   const { user, dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
 
   function logoutHandler() {
-    dispatch({ type: "LOGOUT" });
+    dispatch({ type: ACTIONS.LOGOUT });
     navigate("/");
   }
 

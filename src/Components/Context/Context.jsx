@@ -1,5 +1,6 @@
 import { useEffect, useReducer } from "react";
 import { createContext } from "react";
+import { ACTIONS } from "./Actions";
 
 const initialState = {
   user: localStorage.getItem("User")
@@ -15,14 +16,14 @@ export const AuthContext = createContext(initialState);
 
 function AuthReducer(state, action) {
   switch (action.type) {
-    case "LOGIN_START":
+    case ACTIONS.LOGIN_START:
       return {
         user: null,
         token: null,
         loading: false,
         error: null,
       };
-    case "LOGIN_SUCCESS":
+    case ACTIONS.LOGIN_SUCCESS:
       return {
         user: action.payload,
         token: action.token,
@@ -31,13 +32,13 @@ function AuthReducer(state, action) {
         error: null,
       };
 
-    case "LOGIN_FAILURE":
+    case ACTIONS.LOGIN_FAILURE:
       return {
         user: null,
         loading: false,
         error: action.payload,
       };
-    case "LOGOUT":
+    case ACTIONS.LOGOUT:
       return {
         user: null,
         token: null,
@@ -46,7 +47,7 @@ function AuthReducer(state, action) {
         error: null,
       };
 
-    case "REGISTER":
+    case ACTIONS.REGISTER:
       return {
         user: null,
         loading: false,

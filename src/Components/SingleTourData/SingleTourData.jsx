@@ -10,6 +10,7 @@ import "./SingleTour.css";
 import { useState } from "react";
 import ButtonLoader from "../ButtonLoader/ButtonLoader";
 import BookingModal from "./BookingModal/BookingModal";
+import UserReview from "../UserReview/UserReview";
 // import {  } from "../Context/Context";
 
 function SingleTourData() {
@@ -82,16 +83,16 @@ function SingleTourData() {
         }
         setLoading(false);
         setIsOpen(true);
+        setBookingState({
+          fullName: "",
+          phoneNumber: "",
+          bookingDate: "",
+          maximumPeople: 0,
+          bookingPrice: 0,
+          totalPrice: 0,
+        });
         return await resultResponse;
       }
-      setBookingState({
-        fullName: "",
-        phoneNumber: "",
-        bookingDate: "",
-        maximumPeople: 0,
-        bookingPrice: 0,
-        totalPrice: 0,
-      });
     } catch (error) {
       console.error(error.message);
     }
@@ -227,6 +228,9 @@ function SingleTourData() {
           <h1>Loading...!</h1>
         </section>
       )}
+      <section>
+        <UserReview id={objectData._id} />
+      </section>
     </div>
   );
 }

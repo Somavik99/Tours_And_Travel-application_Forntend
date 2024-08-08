@@ -6,6 +6,7 @@ import LoginPng from "../../assets/login.png";
 import userPng from "../../assets/user.png";
 import "./Login.css";
 import ButtonLoader from "../ButtonLoader/ButtonLoader";
+import { ACTIONS } from "../Context/Actions";
 
 function Login() {
   const [loginCredentials, setLoginCredentials] = useState({
@@ -44,7 +45,7 @@ function Login() {
         console.log(result.message);
       }
       dispatch({
-        type: "LOGIN_SUCCESS",
+        type: ACTIONS.LOGIN_SUCCESS,
         payload: result.data,
         role: result.role,
         token: result.token,
