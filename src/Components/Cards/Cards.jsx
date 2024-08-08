@@ -2,9 +2,26 @@ import { FaLocationDot } from "react-icons/fa6";
 import { LiaRupeeSignSolid } from "react-icons/lia";
 import { GiArchiveResearch } from "react-icons/gi";
 import "./Cards.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../Context/Context";
+// import { useContext, useEffect } from "react";
+// import { AuthContext } from "../Context/Context";
 
 function Cards({ data }) {
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  function onClickRoute(id) {
+    navigate(`/getalltours/${id}`);
+  }
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/logIn");
+    }
+  }, [user, navigate]);
+
   return (
     <div className="Card__container">
       <img src={data.photo} alt={data.title} />
@@ -46,7 +63,7 @@ function Cards({ data }) {
           <span>{data.price}/per person</span>
         </div>
 
-        <button>Book Now</button>
+        <button onClick={() => onClickRoute(data._id)}>Book Now</button>
       </div>
     </div>
   );

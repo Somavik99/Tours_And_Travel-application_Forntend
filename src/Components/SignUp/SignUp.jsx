@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BASE_URI } from "../URL/configFile";
 import registerPng from "../../assets/register.png";
-import userPng from "../../assets/user.png"
+import userPng from "../../assets/user.png";
 import "./SignUp.css";
 
 function SignUp() {
@@ -27,6 +27,8 @@ function SignUp() {
       /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
     ),
   };
+
+  // Handling sing up form submission
 
   async function handleFormSubmit(e) {
     e.preventDefault();
@@ -65,7 +67,7 @@ function SignUp() {
         <div className="img">
           <img src={registerPng} alt="Register" />
         </div>
-        <img src={userPng} alt="user"   className="user__png"/>
+        <img src={userPng} alt="user" className="user__png" />
         <section className="input__cont">
           <h1
             style={{
@@ -117,7 +119,7 @@ function SignUp() {
               outlineOffset: "-0.3rem",
               outline: RegularExp.passwordExp.test(credentials.password)
                 ? "4px solid rgba(53, 117, 255, 0.293)"
-                : credentials.name === ""
+                : credentials.password === ""
                 ? "4px solid rgba(63, 151, 252, 0.564)"
                 : "4px solid rgba(255, 0, 0, 0.698)",
             }}
@@ -131,7 +133,8 @@ function SignUp() {
             style={{
               outlineOffset: "-0.3rem",
               outline:
-                credentials.phone.split("").length === 10 ||  credentials.phone ===""
+                credentials.phone.split("").length === 10 ||
+                credentials.phone === ""
                   ? "4px solid rgba(63, 151, 252, 0.564)"
                   : "4px solid rgba(255, 0, 0, 0.698)",
             }}

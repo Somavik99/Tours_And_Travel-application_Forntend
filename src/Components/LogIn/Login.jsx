@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../Context/Context";
 import { BASE_URI } from "../URL/configFile";
 import LoginPng from "../../assets/login.png";
-import userPng from "../../assets/user.png"
+import userPng from "../../assets/user.png";
 import "./Login.css";
 
 function Login() {
@@ -20,6 +20,8 @@ function Login() {
     const { name, value } = e.target;
     setLoginCredentials((prevState) => ({ ...prevState, [name]: value }));
   }
+
+  // Handling login form submission
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -62,9 +64,9 @@ function Login() {
         <div className="img__cont">
           <img src={LoginPng} alt="Login" />
         </div>
-        <img src={userPng} alt="user"   className="user__png"/>
+        <img src={userPng} alt="user" className="user__png" />
         <section className="Login__inp">
-        <h1
+          <h1
             style={{
               fontSize: "50px",
               fontWeight: "600",
