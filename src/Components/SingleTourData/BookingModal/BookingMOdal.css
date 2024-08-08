@@ -1,0 +1,54 @@
+.Booking__Modal{
+    position: fixed;
+    background: rgba(0, 0, 0, 0.265);
+    backdrop-filter: blur(10px);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.Booking__Modal div{
+    /* border: 1px solid; */
+    height: 50%;
+    position: fixed;
+    top: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: white;
+    padding: 60px;
+    border-radius: 10px;
+}
+
+.Booking__Modal div h1{
+    margin: 20px 0;
+    font-size: 60px;
+    font-weight: 800;
+}
+
+.Booking__Modal div button{
+    width: 100%;
+    padding: 8px;
+    border: 4px solid transparent;
+    background:black;
+    color: white;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    transition: all ease 0.3s;
+}
+
+.Booking__Modal div button:hover{
+    border: 4px solid black;
+    background:white;
+    color: black;
+}
+

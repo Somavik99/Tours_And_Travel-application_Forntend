@@ -9,6 +9,7 @@ import Loader from "../Loader/Loader";
 import "./SingleTour.css";
 import { useState } from "react";
 import ButtonLoader from "../ButtonLoader/ButtonLoader";
+import BookingModal from "./BookingModal/BookingModal";
 // import {  } from "../Context/Context";
 
 function SingleTourData() {
@@ -21,6 +22,7 @@ function SingleTourData() {
     totalPrice: 0,
   });
   const [loading, setLoading] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const { id } = useParams();
 
   const { apiDataObject } = useFetchDataServices(
@@ -43,9 +45,10 @@ function SingleTourData() {
 
   async function handleBookingTour(e) {
     e.preventDefault();
-    
+
     try {
       setLoading(true);
+      setIsOpen(false);
       if (
         bookingState.fullName !== "" &&
         bookingState.phoneNumber !== "" &&
@@ -78,6 +81,7 @@ function SingleTourData() {
           console.error(resultResponse.message);
         }
         setLoading(false);
+        setIsOpen(true);
         return await resultResponse;
       }
       setBookingState({
@@ -202,6 +206,11 @@ function SingleTourData() {
               </section>
             </div>
           </div>
+          {loading === false && isOpen === true ? (
+            <BookingModal setIsOpen={() => setIsOpen(false)} />
+          ) : (
+            <></>
+          )}
         </div>
       ) : (
         <section
