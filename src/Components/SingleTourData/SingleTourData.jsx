@@ -7,12 +7,33 @@ import { GiPathDistance } from "react-icons/gi";
 import { BASE_URI } from "../URL/configFile";
 import Loader from "../Loader/Loader";
 import "./SingleTour.css";
+import { useState } from "react";
 
 function SingleTourData() {
+  const [bookingState, setBookingState] = useState({
+    fullName: "",
+    phone: "",
+    bookingDate: Date,
+    maxPeople: 0,
+    bookingPrice: 0,
+    totalPrice: 0,
+  });
+
   const { id } = useParams();
+
   const { apiDataObject } = useFetchDataServices(
     `${BASE_URI}/tours/singleTourData/${id}`
   );
+
+  function handleBookingInputChange(e) {
+    const { name, value } = e.target;
+    setBookingState((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+      };
+    });
+  }
 
   // console.log(apiDataObject.dataArray)
 
@@ -60,29 +81,59 @@ function SingleTourData() {
                   /Per person
                 </span>
               </h3>
+
+              {/* Form for booking tours */}
+
               <section>
                 <h4>Information</h4>
                 <form>
                   <section className="form__input">
-                    <input type="text" placeholder="Full-name" />
-                    <input type="number" placeholder="Phone-number" />
+                    <input
+                      type="text"
+                      name="fullName"
+                      placeholder="Full-name"
+                      value={bookingState.fullName}
+                      onChange={handleBookingInputChange}
+                    />
+                    <input
+                      type="number"
+                      name="phone"
+                      value={bookingState.phone}
+                      placeholder="Phone-number"
+                      onChange={handleBookingInputChange}
+                    />
                     <div>
-                      <input type="date" />
-                      <input type="number" placeholder="Number of people" />
+                      <input
+                        type="date"
+                        name="bookingDate"
+                        value={bookingState.bookingDate}
+                        onChange={handleBookingInputChange}
+                      />
+                      <input
+                        type="number"
+                        name="maxPeople"
+                        placeholder="Number of people"
+                        value={bookingState.maxPeople}
+                        onChange={handleBookingInputChange}
+                      />
                     </div>
-                  </section> 
+                  </section>
                   <section>
                     <section className="calculation">
-                      <p>{objectData.price} x 1 person</p>
-                      <span>{objectData.price}</span>
+                      <p>
+                        {objectData.price} x {bookingState.maxPeople} person
+                      </p>
+                      <span>{bookingState.bookingPrice}</span>
                     </section>
                     <section className="calculation">
                       <p>Service charges</p>
                       <span>10</span>
                     </section>
-                    <h5 style={{ textAlign: "center" }}>Total: </h5>
+                    <h5 style={{ textAlign: "center" }}>
+                      Total: {bookingState.totalPrice}
+                    </h5>
                   </section>
-                  <button>Book Now</button>
+                  <button type="submit">Book Now</button>
                 </form>
               </section>
             </div>

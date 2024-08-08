@@ -15,7 +15,7 @@ function NavBar() {
   }
 
   useEffect(() => {
-    if (user) {
+    if (!user) {
       navigate("/");
     }
   }, [user, navigate]);

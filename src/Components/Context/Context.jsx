@@ -61,7 +61,7 @@ export function AuthContextProvider({ children }) {
   const [state, dispatch] = useReducer(AuthReducer, initialState);
 
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(state.user));
+    localStorage.setItem("User", JSON.stringify(state.user));
     localStorage.setItem("token", state.token);
     localStorage.setItem("role", state.role);
   }, [state.user, state.token, state.role]);
