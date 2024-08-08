@@ -3,24 +3,26 @@ import { LiaRupeeSignSolid } from "react-icons/lia";
 import { GiArchiveResearch } from "react-icons/gi";
 import "./Cards.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/Context";
 // import { useContext, useEffect } from "react";
 // import { AuthContext } from "../Context/Context";
 
 function Cards({ data }) {
+  const [Clicked, setClicked] = useState(false);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   function onClickRoute(id) {
     navigate(`/getalltours/${id}`);
+    setClicked(true);
   }
 
   useEffect(() => {
-    if (!user) {
+    if (!user && Clicked === true) {
       navigate("/logIn");
     }
-  }, [user, navigate]);
+  }, [user, navigate, Clicked]);
 
   return (
     <div className="Card__container">

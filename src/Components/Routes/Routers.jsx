@@ -8,12 +8,11 @@ import SignUp from "../SignUp/SignUp";
 import Login from "../LogIn/Login";
 
 function Routers() {
-
   return (
     <>
       <NavBar />
       <Routes>
-     <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/getalltours" element={<ToursPage />} />
         <Route path="/getalltours/:id" element={<SingleTourData />} />
         <Route path="/:id" element={<SingleTourData />} />

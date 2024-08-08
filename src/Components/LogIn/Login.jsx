@@ -45,6 +45,7 @@ function Login() {
         role: result.role,
         token: result.token,
       });
+      navigate("/");
     } catch (error) {
       dispatch({ type: "LOGIN_FAILURE", payload: error.message });
     }
@@ -53,9 +54,7 @@ function Login() {
   useEffect(() => {
     if (!user) {
       return navigate("/logIn");
-    } else {
-      return navigate("/");
-    }
+    } 
   }, [navigate, user]);
 
   return (
