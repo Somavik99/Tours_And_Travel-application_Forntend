@@ -7,14 +7,15 @@ import { GiPathDistance } from "react-icons/gi";
 import { BASE_URI } from "../URL/configFile";
 import Loader from "../Loader/Loader";
 import "./SingleTour.css";
-import { useState } from "react";
+import {  useState } from "react";
+// import {  } from "../Context/Context";
 
 function SingleTourData() {
   const [bookingState, setBookingState] = useState({
     fullName: "",
-    phone: "",
-    bookingDate: Date,
-    maxPeople: 0,
+    phoneNumber: "",
+    bookingDate: "",
+    maximumPeople: 0,
     bookingPrice: 0,
     totalPrice: 0,
   });
@@ -35,9 +36,46 @@ function SingleTourData() {
     });
   }
 
-  // console.log(apiDataObject.dataArray)
-
   const objectData = apiDataObject.dataArray;
+  let bookingPrice = objectData.price * bookingState.maximumPeople;
+  let totalPrice = bookingPrice + 10;
+
+  async function handleBookingTour(e) {
+    e.preventDefault();
+    try {
+      const bearerToken = localStorage.getItem("token");
+      const resp = await fetch(
+        `${BASE_URI}/tour_booking/tour/${objectData._id}/booking`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${bearerToken}`,
+          },
+          body: JSON.stringify({
+            fullName: bookingState.fullName,
+            phoneNumber: bookingState.phoneNumber,
+            bookingDate: bookingState.bookingDate,
+            maximumPeople: bookingState.maximumPeople,
+            bookingPrice: bookingPrice,
+            totalPrice: totalPrice,
+          }),
+        }
+      );
+
+      const resultResponse = await resp.json();
+
+      if (!resultResponse.ok) {
+        console.error(resultResponse.message);
+      }
+
+      return await resultResponse;
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  // console.log(apiDataObject)
 
   return (
     <div>
@@ -97,8 +135,8 @@ function SingleTourData() {
                     />
                     <input
                       type="number"
-                      name="phone"
-                      value={bookingState.phone}
+                      name="phoneNumber"
+                      value={bookingState.phoneNumber}
                       placeholder="Phone-number"
                       onChange={handleBookingInputChange}
                     />
@@ -111,9 +149,9 @@ function SingleTourData() {
                       />
                       <input
                         type="number"
-                        name="maxPeople"
+                        name="maximumPeople"
                         placeholder="Number of people"
-                        value={bookingState.maxPeople}
+                        value={bookingState.maximumPeople}
                         onChange={handleBookingInputChange}
                       />
                     </div>
@@ -123,17 +161,17 @@ function SingleTourData() {
                       <p>
                         {objectData.price} x {bookingState.maxPeople} person
                       </p>
-                      <span>{bookingState.bookingPrice}</span>
+                      <span>{bookingPrice}</span>
                     </section>
                     <section className="calculation">
                       <p>Service charges</p>
                       <span>10</span>
                     </section>
-                    <h5 style={{ textAlign: "center" }}>
-                      Total: {bookingState.totalPrice}
-                    </h5>
+                    <h5 style={{ textAlign: "center" }}>Total: {totalPrice}</h5>
                   </section>
-                  <button type="submit">Book Now</button>
+                  <button onClick={handleBookingTour} type="submit">
+                    Book Now
+                  </button>
                 </form>
               </section>
             </div>
