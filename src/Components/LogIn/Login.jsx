@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../Context/Context";
 import { BASE_URI } from "../URL/configFile";
 import LoginPng from "../../assets/login.png";
+import userPng from "../../assets/user.png"
 import "./Login.css";
 
 function Login() {
@@ -61,20 +62,42 @@ function Login() {
         <div className="img__cont">
           <img src={LoginPng} alt="Login" />
         </div>
-        <section className="Loin__inp">
+        <img src={userPng} alt="user"   className="user__png"/>
+        <section className="Login__inp">
+        <h1
+            style={{
+              fontSize: "50px",
+              fontWeight: "600",
+              marginTop: "10px",
+              color: "white",
+            }}
+          >
+            Login
+          </h1>
           <input
             type="email"
             name="email"
+            placeholder="Enter your email..."
             value={loginCredentials.email}
             onChange={handleChange}
           />
           <input
             type="password"
             name="password"
+            placeholder="Enter your password..."
             value={loginCredentials.password}
             onChange={handleChange}
           />
           <button onClick={handleLogin}>Log In</button>
+          <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "10px" }}>
+            Do not have an account?
+            <Link
+              to={"/signUp"}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              SignUp !
+            </Link>
+          </p>
         </section>
       </form>
     </section>

@@ -29,11 +29,11 @@
   border-radius: 10px;
 }
 
-.signUp__container form .user__png{
-    position: absolute;
-    width: 150px;
-    top: -80px;
-    left: 60%;
+.signUp__container form .user__png {
+  position: absolute;
+  width: 150px;
+  top: -80px;
+  left: 60%;
 }
 
 .signUp__container form .img {
@@ -91,6 +91,13 @@
 
 .signUp__container form .input__cont button:hover {
   box-shadow: none;
-  background: white;
+  background-image: linear-gradient(
+    to left bottom,
+    #0059ff,
+    #4366ff,
+    #6073ff,
+    #7680ff,
+    #898eff
+  );
   color: black;
 }

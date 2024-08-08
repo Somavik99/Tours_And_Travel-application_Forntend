@@ -139,7 +139,7 @@ function SignUp() {
           <button onClick={handleFormSubmit} type="submit">
             Sign Up
           </button>
-          <p style={{ fontSize: "18px", fontWeight: "600", marginTop: "10px" }}>
+          <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "10px" }}>
             Already have an account?{" "}
             <Link
               to={"/logIn"}

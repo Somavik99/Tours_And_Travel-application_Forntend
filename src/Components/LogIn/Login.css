@@ -8,12 +8,15 @@
   /* border: 1px solid; */
   margin: 6% 0;
   border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .Login__container {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .Login__container form .img__cont {
@@ -21,11 +24,18 @@
   /* border: 1px solid; */
 }
 
+.Login__container form .img__cont ~ .user__png{
+    position: absolute;
+  width: 150px;
+  top: 50px;
+  left: 63.5%;
+}
+
 .Login__container form .img__cont img {
   width: 100%;
 }
 
-.Login__container form .Loin__inp {
+.Login__container form .Login__inp {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,6 +43,44 @@
   background: orange;
   height: 700px;
   width: 500px;
+  padding: 10%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
+.Login__container form .Login__inp input {
+  padding: 15px 19px;
+  margin: 18px 0;
+  border-radius: 8px;
+  border: none;
+  width: 120%;
+}
 
+.Login__container form .Login__inp button {
+  width: 120%;
+  padding: 10px 18px;
+  margin-top: 15px;
+  border-radius: 8px;
+  background-color: black;
+  color: #f0f0f0;
+  font-size: 18px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  transition: all 0.3s ease;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  border: none;
+}
+
+.Login__container form .Login__inp button:hover {
+  box-shadow: none;
+  background-image: linear-gradient(
+    to left bottom,
+    #0cff00,
+    #47ff54,
+    #68ff7d,
+    #86ff9e,
+    #a3fdba
+  );
+  color: black;
+}
