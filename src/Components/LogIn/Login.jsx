@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/Context";
 import { BASE_URI } from "../URL/configFile";
+import LoginPng from "../../assets/login.png";
+import "./Login.css";
 
 function Login() {
   const [loginCredentials, setLoginCredentials] = useState({
@@ -54,21 +56,28 @@ function Login() {
   }, [navigate, user]);
 
   return (
-    <form>
-      <input
-        type="email"
-        name="email"
-        value={loginCredentials.email}
-        onChange={handleChange}
-      />
-      <input
-        type="password"
-        name="password"
-        value={loginCredentials.password}
-        onChange={handleChange}
-      />
-      <button onClick={handleLogin}>Log In</button>
-    </form>
+    <section className="Login__container">
+      <form>
+        <div className="img__cont">
+          <img src={LoginPng} alt="Login" />
+        </div>
+        <section className="Loin__inp">
+          <input
+            type="email"
+            name="email"
+            value={loginCredentials.email}
+            onChange={handleChange}
+          />
+          <input
+            type="password"
+            name="password"
+            value={loginCredentials.password}
+            onChange={handleChange}
+          />
+          <button onClick={handleLogin}>Log In</button>
+        </section>
+      </form>
+    </section>
   );
 }
 

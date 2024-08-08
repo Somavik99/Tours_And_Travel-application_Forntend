@@ -1,0 +1,38 @@
+.Login__container form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 56.93%;
+  /* border: 1px solid; */
+  margin: 6% 0;
+  border-radius: 15px;
+}
+
+.Login__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Login__container form .img__cont {
+  width: 700px;
+  /* border: 1px solid; */
+}
+
+.Login__container form .img__cont img {
+  width: 100%;
+}
+
+.Login__container form .Loin__inp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: orange;
+  height: 700px;
+  width: 500px;
+}
+
+
