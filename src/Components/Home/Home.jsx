@@ -13,7 +13,7 @@ function Home() {
 
   return (
     <>
-     
+    
       <div className="Hero__container">
         <div>
           <p>

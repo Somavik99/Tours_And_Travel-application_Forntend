@@ -57,8 +57,8 @@ function NavBar() {
         </li>
 
         {user ? (
-          <li>
-            <Link onClick={logoutHandler} className="Route__link1">Log Out</Link>
+          <li onClick={logoutHandler}>
+            <Link  className="Route__link1">Log Out</Link>
           </li>
         ) : (
           <li>

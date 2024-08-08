@@ -5,12 +5,15 @@ import { BASE_URI } from "../URL/configFile";
 import LoginPng from "../../assets/login.png";
 import userPng from "../../assets/user.png";
 import "./Login.css";
+import ButtonLoader from "../ButtonLoader/ButtonLoader";
 
 function Login() {
   const [loginCredentials, setLoginCredentials] = useState({
     email: "",
     password: "",
   });
+
+  const [loading, setLoading] = useState(false);
 
   const { user, dispatch } = useContext(AuthContext);
 
@@ -28,6 +31,7 @@ function Login() {
     dispatch({
       type: "LOGIN_START",
     });
+    setLoading(true);
     try {
       const resp = await fetch(`${BASE_URI}/authorizations/userLogin`, {
         method: "POST",
@@ -45,6 +49,7 @@ function Login() {
         role: result.role,
         token: result.token,
       });
+      setLoading(false);
       navigate("/");
     } catch (error) {
       dispatch({ type: "LOGIN_FAILURE", payload: error.message });
@@ -54,7 +59,7 @@ function Login() {
   useEffect(() => {
     if (!user) {
       return navigate("/logIn");
-    } 
+    }
   }, [navigate, user]);
 
   return (
@@ -89,7 +94,15 @@ function Login() {
             value={loginCredentials.password}
             onChange={handleChange}
           />
-          <button onClick={handleLogin}>Log In</button>
+          <button onClick={handleLogin}>
+            {loading === true ? (
+              <div style={{display:"flex",justifyContent:"center"}}>
+                <ButtonLoader />
+              </div>
+            ) : (
+              "Log In"
+            )}
+          </button>
           <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "10px" }}>
             Do not have an account?
             <Link

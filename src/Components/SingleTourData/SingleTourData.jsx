@@ -7,7 +7,8 @@ import { GiPathDistance } from "react-icons/gi";
 import { BASE_URI } from "../URL/configFile";
 import Loader from "../Loader/Loader";
 import "./SingleTour.css";
-import {  useState } from "react";
+import { useState } from "react";
+import ButtonLoader from "../ButtonLoader/ButtonLoader";
 // import {  } from "../Context/Context";
 
 function SingleTourData() {
@@ -19,7 +20,7 @@ function SingleTourData() {
     bookingPrice: 0,
     totalPrice: 0,
   });
-
+  const [loading, setLoading] = useState(false);
   const { id } = useParams();
 
   const { apiDataObject } = useFetchDataServices(
@@ -42,34 +43,51 @@ function SingleTourData() {
 
   async function handleBookingTour(e) {
     e.preventDefault();
+    
     try {
-      const bearerToken = localStorage.getItem("token");
-      const resp = await fetch(
-        `${BASE_URI}/tour_booking/tour/${objectData._id}/booking`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${bearerToken}`,
-          },
-          body: JSON.stringify({
-            fullName: bookingState.fullName,
-            phoneNumber: bookingState.phoneNumber,
-            bookingDate: bookingState.bookingDate,
-            maximumPeople: bookingState.maximumPeople,
-            bookingPrice: bookingPrice,
-            totalPrice: totalPrice,
-          }),
+      setLoading(true);
+      if (
+        bookingState.fullName !== "" &&
+        bookingState.phoneNumber !== "" &&
+        bookingState.maximumPeople !== 0 &&
+        bookingState.bookingDate !== ""
+      ) {
+        const bearerToken = localStorage.getItem("token");
+        const resp = await fetch(
+          `${BASE_URI}/tour_booking/tour/${objectData._id}/booking`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${bearerToken}`,
+            },
+            body: JSON.stringify({
+              fullName: bookingState.fullName,
+              phoneNumber: bookingState.phoneNumber,
+              bookingDate: bookingState.bookingDate,
+              maximumPeople: bookingState.maximumPeople,
+              bookingPrice: bookingPrice,
+              totalPrice: totalPrice,
+            }),
+          }
+        );
+
+        const resultResponse = await resp.json();
+
+        if (!resultResponse.ok) {
+          console.error(resultResponse.message);
         }
-      );
-
-      const resultResponse = await resp.json();
-
-      if (!resultResponse.ok) {
-        console.error(resultResponse.message);
+        setLoading(false);
+        return await resultResponse;
       }
-
-      return await resultResponse;
+      setBookingState({
+        fullName: "",
+        phoneNumber: "",
+        bookingDate: "",
+        maximumPeople: 0,
+        bookingPrice: 0,
+        totalPrice: 0,
+      });
     } catch (error) {
       console.error(error.message);
     }
@@ -170,7 +188,15 @@ function SingleTourData() {
                     <h5 style={{ textAlign: "center" }}>Total: {totalPrice}</h5>
                   </section>
                   <button onClick={handleBookingTour} type="submit">
-                    Book Now
+                    {loading === true ? (
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <ButtonLoader />
+                      </div>
+                    ) : (
+                      "Book Now"
+                    )}
                   </button>
                 </form>
               </section>
