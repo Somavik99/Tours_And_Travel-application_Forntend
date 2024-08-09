@@ -49,7 +49,7 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  background-color: rgb(226, 226, 226);
+  /* background-color: rgb(226, 226, 226); */
   height: 450px;
 }
 

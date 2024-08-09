@@ -42,7 +42,7 @@ function SingleTourData() {
 
   const objectData = apiDataObject.dataArray;
   let bookingPrice = objectData.price * bookingState.maximumPeople;
-  let totalPrice = bookingPrice + 10;
+  let totalPrice = bookingPrice + 100;
 
   async function handleBookingTour(e) {
     e.preventDefault();
@@ -188,7 +188,7 @@ function SingleTourData() {
                     </section>
                     <section className="calculation">
                       <p>Service charges</p>
-                      <span>10</span>
+                      <span>100</span>
                     </section>
                     <h5 style={{ textAlign: "center" }}>Total: {totalPrice}</h5>
                   </section>
