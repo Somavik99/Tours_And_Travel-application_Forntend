@@ -23,10 +23,12 @@ function ToursPage() {
         <Search />
       </div>
       {apiDataObject.dataArray.length !== 0 ? (
-        <div className="Tours__Cards">
-          {apiDataObject.dataArray?.map((data, index) => {
-            return <Cards data={data} key={index} />;
-          })}
+        <div className="Tours__card__cont">
+          <div className="Tours__Cards">
+            {apiDataObject.dataArray?.map((data, index) => {
+              return <Cards data={data} key={index} />;
+            })}
+          </div>
         </div>
       ) : (
         <section
@@ -35,7 +37,7 @@ function ToursPage() {
             justifyContent: "center",
             alignItems: "center",
             height: "600px",
-            flexDirection:"column"
+            flexDirection: "column",
           }}
         >
           <Loader />

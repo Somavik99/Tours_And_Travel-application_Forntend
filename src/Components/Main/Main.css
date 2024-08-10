@@ -31,13 +31,21 @@
 }
 
 .Cards__cont {
-  display: grid;
+  /* display: grid;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
   grid-template-columns: repeat(4, 25rem);
   margin-left: 50px;
-  row-gap: -50px;
+  row-gap: -50px; */
+  /* border: 1px solid ; */
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
 }
 
 .Explore {

@@ -1,0 +1,60 @@
+.Review__Container {
+  height: 700px;
+  width: 800px;
+  border: 1px solid;
+  padding: 20px;
+  margin: 20px 12%;
+  margin-top: -8%;
+  margin-bottom: 8%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: self-start;
+  flex-direction: column;
+  border-radius: 15px;
+}
+
+.Review__Container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+  border: 1px solid;
+  width: 100%;
+  padding: 3% 0;
+}
+
+.Review__Container form div {
+  /* border: 1px solid; */
+  width: 100%;
+  margin: 2%;
+}
+
+.Review__Container form input {
+  padding: 10px 25%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 3px solid black;
+  outline: none;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.Review__Container form button {
+  padding: 12px 3%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 3px solid transparent;
+  background: black;
+  color: white;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  font-weight: 700;
+}
+
+
+.Review__Container form button:hover{
+    color: black;
+    background: white;
+    border: 3px solid rgb(0, 0, 0);
+}
+

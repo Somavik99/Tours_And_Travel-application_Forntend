@@ -23,12 +23,19 @@
   text-align: center;
 }
 
+.Tours__card__cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .Tours__Cards {
-  display: grid;
-  justify-content: space-evenly;
-  grid-template-columns: repeat(4, 2rem);
-  row-gap: 30px;
-  margin-top: 50px;
-  margin-left: -120px;
-  margin-right: 150px;
+ /* border: 1px solid ; */
+ width: 100%;
+ margin: 0 auto;
+ display: flex;
+ justify-content: flex-start;
+ align-items: center;
+ flex-wrap: wrap;
+ padding: 10px;
 }

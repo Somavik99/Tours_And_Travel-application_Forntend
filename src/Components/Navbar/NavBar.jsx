@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import AchiversItLogo from "../../assets/logo.png";
 import "./NavBar.css";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../Context/Context";
 import avatar from "../../assets/avatar.jpg";
 import { ACTIONS } from "../Context/Actions";
@@ -15,11 +15,11 @@ function NavBar() {
     navigate("/");
   }
 
-  useEffect(() => {
-    if (!user) {
-      navigate("/");
-    }
-  }, [user, navigate]);
+  // useEffect(() => {
+  //   if (!user) {
+  //     navigate("/logIn");
+  //   }
+  // }, [user, navigate]);
 
   return (
     <div className="Nav_elements">

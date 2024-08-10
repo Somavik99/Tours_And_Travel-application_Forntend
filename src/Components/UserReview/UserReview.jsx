@@ -59,7 +59,8 @@ function UserReview({ id }) {
   }
 
   return (
-    <section>
+    <section className="Review__Container">
+      <h1>Reviews <span>{}</span></h1>
       <form>
         <div>
           <Rating
@@ -71,10 +72,11 @@ function UserReview({ id }) {
             initialValue={reviewState.rating}
           />
         </div>
-        <div>
+        <div >
           <input
             type="text"
             name="comment"
+            placeholder="Enter your comment...!"
             value={reviewState.comment}
             onChange={onReviewPost}
           />
@@ -83,6 +85,9 @@ function UserReview({ id }) {
           </button>
         </div>
       </form>
+      <section>
+        <h3>All Reviews</h3>
+      </section>
     </section>
   );
 }

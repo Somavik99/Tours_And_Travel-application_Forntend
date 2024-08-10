@@ -11,22 +11,24 @@ import { MdOutlineEmail } from "react-icons/md";
 const Footer = () => {
   return (
     <>
-      <div className="Footer__top-container">
-        <section>
-          <h1>Subscribe now for useful traveling information </h1>
-          <div>
-            <input type="email" placeholder="Enter your email" />
-            <button>Subscribe</button>
-          </div>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem
-            porro, sapiente qui suscipit odit aliquid!
-          </p>
-        </section>
-        <section>
-          <img src={Tourist} alt="Tourist" />
-        </section>
-      </div>
+      {
+        <div className="Footer__top-container">
+          <section>
+            <h1>Subscribe now for useful traveling information </h1>
+            <div>
+              <input type="email" placeholder="Enter your email" />
+              <button>Subscribe</button>
+            </div>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem
+              porro, sapiente qui suscipit odit aliquid!
+            </p>
+          </section>
+          <section>
+            <img src={Tourist} alt="Tourist" />
+          </section>
+        </div>
+      }
       <div className="Footer__bottom-container">
         <section className="Logo__container">
           <img src={AchieversItLogo} alt="AchieversIt" />

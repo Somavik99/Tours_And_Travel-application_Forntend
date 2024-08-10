@@ -4,6 +4,7 @@ import { BASE_URI } from "../URL/configFile";
 import registerPng from "../../assets/register.png";
 import userPng from "../../assets/user.png";
 import "./SignUp.css";
+import ButtonLoader from "../ButtonLoader/ButtonLoader";
 
 function SignUp() {
   const [credentials, setCredentials] = useState({
@@ -12,6 +13,8 @@ function SignUp() {
     phone: "",
     password: "",
   });
+
+  const [singUpLoading, setSignUpLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -32,6 +35,7 @@ function SignUp() {
 
   async function handleFormSubmit(e) {
     e.preventDefault();
+    setSignUpLoading(true);
     try {
       if (
         RegularExp.nameExp.test(credentials.name) &&
@@ -52,6 +56,7 @@ function SignUp() {
         if (!result.ok) {
           console.log(result.message);
         }
+        setSignUpLoading(false);
         navigate("/logIn");
       } else {
         alert("Requirements not matched...! Fill all the fields...!");
@@ -140,7 +145,13 @@ function SignUp() {
             }}
           />
           <button onClick={handleFormSubmit} type="submit">
-            Sign Up
+            {singUpLoading ? (
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <ButtonLoader />
+              </div>
+            ) : (
+              "Sign Up"
+            )}
           </button>
           <p style={{ fontSize: "25px", fontWeight: "600", marginTop: "10px" }}>
             Already have an account?{" "}
