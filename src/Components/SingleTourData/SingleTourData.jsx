@@ -212,6 +212,14 @@ function SingleTourData() {
           ) : (
             <></>
           )}
+          <section>
+            <UserReview
+              id={objectData._id}
+              data={objectData}
+              loading={loading}
+              setLoading={setLoading}
+            />
+          </section>
         </div>
       ) : (
         <section
@@ -228,9 +236,6 @@ function SingleTourData() {
           <h1>Loading...!</h1>
         </section>
       )}
-      <section>
-        <UserReview id={objectData._id} />
-      </section>
     </div>
   );
 }

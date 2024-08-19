@@ -1,5 +1,5 @@
 .Review__Container {
-  height: 700px;
+  height: 100%;
   width: 800px;
   border: 1px solid;
   padding: 20px;
@@ -18,7 +18,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: start;
-  border: 1px solid;
+  /* border: 1px solid; */
   width: 100%;
   padding: 3% 0;
 }
@@ -37,6 +37,8 @@
   outline: none;
   font-weight: 600;
   font-size: 18px;
+  width: 95%;
+  margin-bottom: 20px;
 }
 
 .Review__Container form button {
@@ -44,17 +46,35 @@
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   border: 3px solid transparent;
-  background: black;
+  background: orange;
   color: white;
   font-size: 18px;
   transition: all 0.3s ease;
   font-weight: 700;
+  width: 95%;
+}
+
+.Review__Container form button:hover {
+  color: black;
+  background: white;
+  border: 3px solid rgb(0, 0, 0);
+}
+
+.AllReviews__container::-webkit-scrollbar {
+  width: 7px;
+  background: black;
 }
 
 
-.Review__Container form button:hover{
-    color: black;
-    background: white;
-    border: 3px solid rgb(0, 0, 0);
+
+
+
+.AllReviews__container::-webkit-scrollbar-track {
+  border-radius: 15px;
 }
 
+.AllReviews__container::-webkit-scrollbar-thumb{
+width: 6px ;
+border-radius: 10px;
+background: white;
+}

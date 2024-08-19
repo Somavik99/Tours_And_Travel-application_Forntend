@@ -4,9 +4,13 @@ import { BASE_URI } from "../URL/configFile";
 import { Rating } from "react-simple-star-rating";
 import { useState } from "react";
 import { initialReviews } from "./initialRview";
+import { IoMdStar } from "react-icons/io";
+// import ButtonLoader from "../ButtonLoader/ButtonLoader"; 
+import ReviewLoader from "./ReviewLoader/ReviewLoader";
 
-function UserReview({ id }) {
+function UserReview({ id, data}) {
   const [reviewState, setReviewState] = useState(initialReviews);
+  const [loadingReview,setLoadingReview] = useState(false)
 
   function handleReviewRating(rating) {
     setReviewState((prev) => {
@@ -34,6 +38,7 @@ function UserReview({ id }) {
   async function handleSubmitReviews(e) {
     e.preventDefault();
     const token = localStorage.getItem("token");
+    setLoadingReview(true);
     try {
       const response = await fetch(`${BASE_URI}/review/tours/${id}/reviews`, {
         method: "POST",
@@ -51,6 +56,7 @@ function UserReview({ id }) {
       if (!reviewResult.ok) {
         console.log(reviewResult.message);
       }
+      setLoadingReview(false);
       setReviewState(initialReviews);
       return await reviewResult;
     } catch (error) {
@@ -60,7 +66,9 @@ function UserReview({ id }) {
 
   return (
     <section className="Review__Container">
-      <h1>Reviews <span>{}</span></h1>
+      <h1>
+        Reviews <span>({data.reviews.length} reviews)</span>
+      </h1>
       <form>
         <div>
           <Rating
@@ -72,7 +80,7 @@ function UserReview({ id }) {
             initialValue={reviewState.rating}
           />
         </div>
-        <div >
+        <div>
           <input
             type="text"
             name="comment"
@@ -81,12 +89,67 @@ function UserReview({ id }) {
             onChange={onReviewPost}
           />
           <button type="submit" onClick={handleSubmitReviews}>
-            Submit
+            {loadingReview === true ? (
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <ReviewLoader/>
+              </div>
+            ) : (
+              "Submit"
+            )}
           </button>
         </div>
       </form>
-      <section>
+      <section style={{ width: "100%" }}>
         <h3>All Reviews</h3>
+        <section
+          style={{
+            border: "1px solid",
+            width: "100%",
+            height:"600px",
+            overflowY: "scroll",
+            overflowX: "hidden",
+            boxSizing: "border-box",
+            borderRadius: "5px",
+          }}
+          className="AllReviews__container"
+        >
+          {data.reviews.map((review, index) => {
+            return (
+              <section
+                key={index}
+                style={{
+                  width: "90%",
+                  margin: "60px",
+                  height: "50%",
+                }}
+              >
+                <h5>
+                  <span
+                    style={{
+                      margin: "10px",
+                      padding: "20px 25px",
+                      color: "white",
+                      border: "1px solid",
+                      borderRadius: "50px",
+                      background: "orange",
+                    }}
+                  >
+                    {review.user.name.split("")[0]}
+                  </span>
+                  {review.user.name}
+                  <p style={{ marginLeft: "10%" }}>{review.user.email}</p>
+                </h5>
+                <section>
+                  <p>
+                    Rating: {review.rating}
+                    <IoMdStar color="orange" />
+                  </p>
+                  <p>Comment: {review.comment}</p>
+                </section>
+              </section>
+            );
+          })}
+        </section>
       </section>
     </section>
   );

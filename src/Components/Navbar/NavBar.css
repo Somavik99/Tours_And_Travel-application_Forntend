@@ -8,6 +8,7 @@
   position: sticky;
   top: 1px;
   z-index: 100;
+  width: 100%;
 }
 
 .List_elements {
