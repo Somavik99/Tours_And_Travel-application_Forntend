@@ -24,10 +24,12 @@
 }
 
 .Tours__card__cont{
-  display: flex;
+ 
+  display: grid;
   justify-content: center;
   align-items: center;
-  flex-grow: inherit;
+  grid-template-columns: repeat(auto-fit, 1fr);
+  margin-left: 5%;
 }
 
 .Tours__Cards {

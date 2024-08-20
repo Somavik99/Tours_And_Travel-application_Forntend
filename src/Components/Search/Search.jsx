@@ -50,9 +50,9 @@ function Search() {
 
         return searchData.address.includes(searchLocation) ||
           searchData.title.includes(searchLocation) ||
-          (searchData.city.includes(searchLocation) &&
-            searchData.distance.toString() === searchInput.Distance &&
-            searchData.maxGroupSize.toString() === searchInput.maxPeople)
+          searchData.city.includes(searchLocation) ||
+          searchData.distance.toString() === searchInput.Distance ||
+          searchData.maxGroupSize.toString() === searchInput.maxPeople
           ? data
           : null;
       });

@@ -1,8 +1,9 @@
 .single__tour__cont {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  gap: 100px;
 }
 
 .single__tour__cont .About__container {
@@ -45,8 +46,18 @@
   height: 700px;
   border: 1px solid rgba(128, 128, 128, 0.189);
   border-radius: 15px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  background-image: linear-gradient(to left bottom, #ffffff, #fbfbfb, #f7f7f7, #f4f4f4, #f0f0f0);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  background-image: linear-gradient(
+    to left bottom,
+    #ffffff,
+    #fbfbfb,
+    #f7f7f7,
+    #f4f4f4,
+    #f0f0f0
+  );
+  /* margin-top: -120px; */
+  z-index: 10;
 }
 
 .Booking__container h3 {
@@ -62,7 +73,7 @@
   border: 1px solid rgba(128, 128, 128, 0.189);
   padding: 15px;
   border-radius: 15px;
-  }
+}
 
 .Booking__container h3 ~ section form input {
   margin: 20px;
@@ -84,12 +95,22 @@
   margin-top: 15px;
 }
 
-
-.calculation{
-    display: flex;
-    justify-content: space-around;
-    margin: 8px;
-font-size: 17px;
-font-weight: 500;
-color: gray;
+.calculation {
+  display: flex;
+  justify-content: space-around;
+  margin: 8px;
+  font-size: 17px;
+  font-weight: 500;
+  color: gray;
 }
+
+
+@media only screen and (min-width:0px) and (max-width:1394px){
+  .single__tour__cont{
+    gap: 5px;
+  }
+.Booking__container{
+  margin-top:20px;
+}
+}
+

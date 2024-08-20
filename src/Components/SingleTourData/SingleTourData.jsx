@@ -145,7 +145,7 @@ function SingleTourData() {
 
               {/* Form for booking tours */}
 
-              <section>
+              <section >
                 <h4>Information</h4>
                 <form>
                   <section className="form__input">
@@ -195,7 +195,7 @@ function SingleTourData() {
                   <button onClick={handleBookingTour} type="submit">
                     {loading === true ? (
                       <div
-                        style={{ display: "flex", justifyContent: "center" }}
+                        style={{ display: "flex", justifyContent: "center",alignItems:"center" }}
                       >
                         <ButtonLoader />
                       </div>
@@ -212,7 +212,7 @@ function SingleTourData() {
           ) : (
             <></>
           )}
-          <section>
+          <section style={{}}>
             <UserReview
               id={objectData._id}
               data={objectData}

@@ -1,6 +1,6 @@
 /* From Uiverse.io by AbanoubMagdy1 */
 .loader {
-  --dim: .5rem;
+  --dim: 2rem;
   width: var(--dim);
   height: var(--dim);
   position: relative;
@@ -9,7 +9,7 @@
 
 .loader .circle {
   --color: #333;
-  --dim: 2rem;
+  --dim: 0.7rem;
   width: var(--dim);
   height: var(--dim);
   background-color: var(--color);
