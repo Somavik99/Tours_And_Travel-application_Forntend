@@ -55,3 +55,23 @@
     align-items: center;
     flex-wrap: wrap;
 }
+
+
+.Modal__container .Modal__body::-webkit-scrollbar {
+  width: 7px;
+  background: black;
+}
+
+
+
+
+
+.Modal__container .Modal__body::-webkit-scrollbar-track {
+  border-radius: 15px;
+}
+
+.Modal__container .Modal__body::-webkit-scrollbar-thumb{
+width: 6px ;
+border-radius: 10px;
+background: white;
+}

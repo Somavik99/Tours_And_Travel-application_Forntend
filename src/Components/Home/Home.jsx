@@ -1,19 +1,23 @@
-
 import worldPng from "../../assets/world.png";
 import HeroImage1 from "../../assets/hero-img01.jpg";
 import HeroVideo from "../../assets/hero-video.mp4";
 import HeroImage2 from "../../assets/hero-img02.jpg";
 import "./Home.css";
 import Main from "../Main/Main";
-
+import { motion } from "framer-motion";
 
 function Home() {
-
-
-
   return (
-    <>
-    
+    <motion.div
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{
+        x: window.innerWidth,
+        transition: {
+          duration: 0.1,
+        },
+      }}
+    >
       <div className="Hero__container">
         <div>
           <p>
@@ -64,7 +68,7 @@ function Home() {
         <Main />
       </div>
       <div></div>
-    </>
+    </motion.div>
   );
 }
 

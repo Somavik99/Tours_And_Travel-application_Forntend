@@ -4,6 +4,7 @@ import useFetchDataServices from "../Hooks/useFetchAllServiceData";
 import Loader from "../Loader/Loader";
 import Search from "../Search/Search";
 import { BASE_URI } from "../URL/configFile";
+import { motion } from "framer-motion";
 import "./toursPage.css";
 
 function ToursPage() {
@@ -12,7 +13,17 @@ function ToursPage() {
   );
 
   return (
-    <div className="Tours__container">
+    <motion.div
+      className="Tours__container"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{
+        x: window.innerWidth,
+        transition: {
+          duration: 0.1,
+        },
+      }}
+    >
       <div className="Tours__header-image">
         <div>
           <h1>ALL TOURS</h1>
@@ -44,7 +55,7 @@ function ToursPage() {
           <h1>Loading...!</h1>
         </section>
       )}
-    </div>
+    </motion.div>
   );
 }
 

@@ -11,6 +11,7 @@ import { useState } from "react";
 import ButtonLoader from "../ButtonLoader/ButtonLoader";
 import BookingModal from "./BookingModal/BookingModal";
 import UserReview from "../UserReview/UserReview";
+import { motion } from "framer-motion";
 // import {  } from "../Context/Context";
 
 function SingleTourData() {
@@ -101,7 +102,17 @@ function SingleTourData() {
   // console.log(apiDataObject)
 
   return (
-    <div>
+    <motion.div
+    style={{marginTop:"3.5%"}}
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{
+        x: window.innerWidth,
+        transition: {
+          duration: 0.1,
+        },
+      }}
+    >
       {apiDataObject.dataArray.length !== 0 ? (
         <div>
           <div className="single__tour__cont">
@@ -145,7 +156,7 @@ function SingleTourData() {
 
               {/* Form for booking tours */}
 
-              <section >
+              <section>
                 <h4>Information</h4>
                 <form>
                   <section className="form__input">
@@ -195,7 +206,11 @@ function SingleTourData() {
                   <button onClick={handleBookingTour} type="submit">
                     {loading === true ? (
                       <div
-                        style={{ display: "flex", justifyContent: "center",alignItems:"center" }}
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
                       >
                         <ButtonLoader />
                       </div>
@@ -236,7 +251,7 @@ function SingleTourData() {
           <h1>Loading...!</h1>
         </section>
       )}
-    </div>
+    </motion.div>
   );
 }
 
