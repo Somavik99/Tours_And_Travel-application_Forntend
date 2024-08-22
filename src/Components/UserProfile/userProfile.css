@@ -1,0 +1,67 @@
+.Form__cont {
+  border: 1px solid;
+  width: 95%;
+  margin: 2%;
+  padding: 15px;
+  background-color: rgb(17, 24, 40);
+}
+
+label {
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.Form__cont div {
+  /* border: 1px solid; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.Form__cont div input {
+  width: 100%;
+  border-radius: 8px;
+  padding: 12px;
+  /* margin: 1%; */
+}
+
+.Form__cont div input[type="radio"] {
+  width: 10%;
+}
+
+.Form__cont section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 20px;
+  /* flex-wrap: wrap; */
+}
+
+.Form__cont button {
+  /* margin: 10px; */
+  width: 100%;
+  padding: 15px;
+}
+
+.featured__cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.featured__cont .boolean__val {
+  display: flex;
+  /* border: 1px solid; */
+  width: 5%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: rgb(255, 255, 255);
+  color: black;
+}

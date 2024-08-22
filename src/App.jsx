@@ -1,12 +1,13 @@
-import Routers from "./Components/Routes/Routers"
-
+import Routers from "./Components/Routes/Routers";
+import ScrollToTop from "./Components/ScrollToTop";
 
 const App = () => {
   return (
     <>
-      <Routers/>
+      <ScrollToTop />
+      <Routers />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

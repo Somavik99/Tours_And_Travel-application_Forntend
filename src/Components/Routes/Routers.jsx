@@ -7,6 +7,7 @@ import SingleTourData from "../SingleTourData/SingleTourData";
 import SignUp from "../SignUp/SignUp";
 import Login from "../LogIn/Login";
 import { AnimatePresence } from "framer-motion";
+import UserProfile from "../UserProfile/UserProfile";
 
 function Routers() {
   const location = useLocation()
@@ -21,6 +22,7 @@ function Routers() {
         <Route path="/:id" element={<SingleTourData />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/logIn" element={<Login />} />
+        <Route path="/user" element={<UserProfile/>}/>
       </Routes>
       </AnimatePresence>
       <Footer />

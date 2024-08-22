@@ -15,6 +15,10 @@ function NavBar() {
     navigate("/");
   }
 
+  function submitToursTravelForm(){
+    navigate("/user")
+  }
+
   // useEffect(() => {
   //   if (!user) {
   //     navigate("/logIn");
@@ -48,6 +52,7 @@ function NavBar() {
                   border: "2px solid orange",
                   borderRadius: "50px",
                 }}
+onClick={submitToursTravelForm}
               />
             </>
           ) : (
