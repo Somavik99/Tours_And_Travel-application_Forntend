@@ -1,6 +1,6 @@
 import worldPng from "../../assets/world.png";
 import HeroImage1 from "../../assets/hero-img01.jpg";
-import HeroVideo from "../../assets/hero-video.mp4";
+// import HeroVideo from "../../assets/hero-video.mp4";
 import HeroImage2 from "../../assets/hero-img02.jpg";
 import "./Home.css";
 import Main from "../Main/Main";
@@ -59,7 +59,7 @@ function Home() {
         <div className="HeroImage__container">
           <img src={HeroImage1} alt="heroImage" className="Hero__image1" />
           <video controls className="video">
-            <source src={HeroVideo} type="video/mp4" />
+            <source src="https://cdn.pixabay.com/video/2017/12/17/13441-247710869_large.mp4" type="video/mp4" />
           </video>
           <img src={HeroImage2} alt="HeroImage" className="Hero__image2" />
         </div>
