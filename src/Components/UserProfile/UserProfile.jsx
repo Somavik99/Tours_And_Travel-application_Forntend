@@ -92,6 +92,7 @@ function UserProfile() {
           "Token either invalid or expired. Redirecting to login...!"
         );
         localStorage.removeItem("token");
+        localStorage.removeItem("User");
         window.location.href = "/logIn";
       }
     } catch (error) {
