@@ -1,9 +1,10 @@
 .Form__cont {
-  border: 1px solid;
+  /* border: 1px solid; */
   width: 95%;
   margin: 2%;
   padding: 15px;
   background-color: rgb(17, 24, 40);
+  border-radius: 10px;
 }
 
 label {
@@ -30,7 +31,7 @@ label {
 }
 
 .Form__cont div input[type="radio"] {
-  width: 10%;
+  width: 50%;
 }
 
 .Form__cont section {
@@ -45,8 +46,24 @@ label {
 .Form__cont button {
   /* margin: 10px; */
   width: 100%;
-  padding: 15px;
+  padding: 12px;
+  border: 0.2rem solid transparent;
+  border-radius: 8px;
+  background: linear-gradient(to right top, #ff7900, #ff9237, #ffa85d, #ffbe82, #ffd2a8);
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  transition: all 0.5s ease-out;
 }
+
+.Form__cont button:hover{
+  border: 0.2rem solid white;
+  background: black;
+  color: white;
+}
+
+
 
 .featured__cont {
   display: flex;
@@ -55,7 +72,7 @@ label {
   width: 100%;
 }
 
-.featured__cont .boolean__val {
+.featured__cont .boolean__val  {
   display: flex;
   /* border: 1px solid; */
   width: 5%;
@@ -63,5 +80,25 @@ label {
   align-items: center;
   border-radius: 8px;
   background: rgb(255, 255, 255);
+  margin: 5px;
+
+}
+
+.featured__cont .boolean__val input{
+  width: 100px;
+}
+
+.featured__cont .boolean__val label{
   color: black;
 }
+
+textarea{
+  margin: 10px;
+  padding: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  width: 70%;
+}
+
+

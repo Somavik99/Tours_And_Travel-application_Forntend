@@ -48,3 +48,15 @@ export const MainStyles = {
     borderRadius: "50px",
   }
 }
+
+export const paginationButtonStyles = {
+  pageButton:{
+    width: "50px",
+    height: "50px",
+    borderRadius: "50px",
+    border: "none",
+    outline: "0.2rem solid rgb(100,155,455)",
+    fontSize: "22px",
+    fontWeight: "700",
+  }
+}

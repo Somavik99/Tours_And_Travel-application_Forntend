@@ -6,10 +6,22 @@ import Search from "../Search/Search";
 import { BASE_URI } from "../URL/configFile";
 import { motion } from "framer-motion";
 import "./toursPage.css";
+import { useState } from "react";
+import Pagination from "./Pagination/Pagiantion";
 
 function ToursPage() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [toursPerPage, setToursPerPage] = useState(10);
   const { apiDataObject } = useFetchDataServices(
     `${BASE_URI}/tours/getAllToursData`
+  );
+
+  const lastPostIndex = currentPage * toursPerPage;
+  const firstPostIndex = lastPostIndex - toursPerPage;
+
+  const currentToursData = apiDataObject.dataArray.slice(
+    firstPostIndex,
+    lastPostIndex
   );
 
   return (
@@ -34,13 +46,23 @@ function ToursPage() {
         <Search />
       </div>
       {apiDataObject.dataArray.length !== 0 ? (
-        <div className="Tours__card__cont">
-          <div className="Tours__Cards">
-            {apiDataObject.dataArray?.map((data, index) => {
-              return <Cards data={data} key={index} />;
-            })}
+        <>
+          <div className="Tours__card__cont">
+            <div className="Tours__Cards">
+              {currentToursData?.map((data, index) => {
+                return <Cards data={data} key={index} />;
+              })}
+            </div>
           </div>
-        </div>
+          <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+            <Pagination
+              totalTours={apiDataObject.dataArray.length}
+              toursPerPage={toursPerPage}
+              setCurrentPage={setCurrentPage}
+              setToursPerPage={setToursPerPage}
+            />
+          </div>
+        </>
       ) : (
         <section
           style={{
