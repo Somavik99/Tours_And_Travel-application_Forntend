@@ -79,7 +79,7 @@
   font-size: 19px;
   margin-right: 9px;
 }
-.Footer__bottom-container .Details__container div ul {
+.Footer__bottom-container .Details__container div .List-Items {
   list-style: none;
   padding: 15px;
 }
@@ -88,7 +88,7 @@
   font-size: 22px;
 }
 
-.Footer__bottom-container .Details__container div ul li {
+.Footer__bottom-container .Details__container div .List-Items li {
   padding: 10px;
   font-size: 20px;
   font-weight: 400;
@@ -96,6 +96,6 @@
   transition: all 0.1s ease;
 }
 
-.Footer__bottom-container .Details__container div ul li:hover {
+.Footer__bottom-container .Details__container div .List-Items li:hover {
   color: orange;
 }

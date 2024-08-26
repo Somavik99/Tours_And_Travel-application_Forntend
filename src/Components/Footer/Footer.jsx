@@ -54,7 +54,7 @@ const Footer = () => {
         <section className="Details__container">
           <div>
             <h5>Discover</h5>
-            <ul>
+            <ul className="List-Items">
               <li>Home</li>
               <li>About</li>
               <li>Tours</li>
@@ -62,7 +62,7 @@ const Footer = () => {
           </div>
           <div>
             <h5>Quick Links</h5>
-            <ul>
+            <ul className="List-Items">
               <li>Gallery</li>
               <li>Login</li>
               <li>Register</li>
@@ -70,7 +70,7 @@ const Footer = () => {
           </div>
           <div>
             <h5>Contact Us</h5>
-            <ul>
+            <ul className="List-Items">
               <li>
                 <CiLocationOn size={25} color="orange" />
                 <span style={{ fontWeight: "500" }}>Address</span> : Bangalore,

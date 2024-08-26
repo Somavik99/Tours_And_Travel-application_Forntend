@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./userProfile.css";
 import { BASE_URI } from "../URL/configFile";
-import Loader from "../Loader/Loader";
+import ButtonLoader from "../ButtonLoader/ButtonLoader";
 
 function UserProfile() {
   const [submitLoading, setSubmitLoading] = useState(false);
@@ -15,6 +15,8 @@ function UserProfile() {
     photo: "",
     featured: undefined,
     description: "",
+    yes:"",
+    no:""
   });
 
   function handleNewTourSubmitChange(e) {
@@ -55,7 +57,7 @@ function UserProfile() {
           price: newTourData.price,
           maxGroupSize: newTourData.maxGroupSize,
           photo: newTourData.photo,
-          featured: newTourData.featured === "yes" ? true : false,
+          featured: newTourData.yes === "yes" ? true : false,
           description: newTourData.description,
         }),
       });
@@ -193,7 +195,7 @@ function UserProfile() {
             <div className="boolean__val">
               <input
                 type="radio"
-                name="featured"
+                name="yes"
                 value={newTourData.featured}
                 onChange={handleNewTourSubmitChange}
                 id="YES"
@@ -204,7 +206,7 @@ function UserProfile() {
             <div className="boolean__val">
               <input
                 type="radio"
-                name="featured"
+                name="no"
                 value={newTourData.featured}
                 onChange={handleNewTourSubmitChange}
                 id="NO"
@@ -232,7 +234,7 @@ function UserProfile() {
               "SUBMIT"
             ) : (
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <Loader />
+               <ButtonLoader/>
               </div>
             )}
           </button>

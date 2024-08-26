@@ -58,5 +58,6 @@ export const paginationButtonStyles = {
     outline: "0.2rem solid rgb(100,155,455)",
     fontSize: "22px",
     fontWeight: "700",
+    margin:"15px"
   }
 }

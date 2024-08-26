@@ -11,7 +11,7 @@ import Pagination from "./Pagination/Pagiantion";
 
 function ToursPage() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [toursPerPage, setToursPerPage] = useState(10);
+  const [toursPerPage, setToursPerPage] = useState(8);
   const { apiDataObject } = useFetchDataServices(
     `${BASE_URI}/tours/getAllToursData`
   );
@@ -54,7 +54,7 @@ function ToursPage() {
               })}
             </div>
           </div>
-          <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+          <div style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"12px"}}>
             <Pagination
               totalTours={apiDataObject.dataArray.length}
               toursPerPage={toursPerPage}
