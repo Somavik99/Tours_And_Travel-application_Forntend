@@ -6,12 +6,12 @@
   background-color: rgba(255, 255, 255, 0.588);
   backdrop-filter: blur(10px);
   position: sticky;
-  top: 1px;
+  top: 0;
   z-index: 100;
   width: 100%;
 }
 
-ul {
+.Nav_elements ul {
   list-style-type: none;
   display: flex;
   justify-content: space-around;
@@ -24,11 +24,12 @@ ul {
   transition: all 0.5s ease;
 }
 
-ul li:nth-child(4) {
+.Nav_elements ul li:nth-child(4) {
   background-color: orange;
   padding: 5px 15px;
   border-radius: 50px;
   color: white;
+  text-align: center;
 }
 
 .Route__link {
@@ -56,34 +57,69 @@ ul li:nth-child(4) {
 .menu__bar {
   display: none;
   position: absolute;
-right: 5%;
+  right: 5%;
 }
 
-@media only screen and (min-width: 0px) and (max-width: 950px) {
+@media only screen and (max-width: 1500px) {
   .menu__bar {
     display: block;
     cursor: pointer;
   }
-  .Nav_elements{
+  
+  .Nav_elements {
     align-items: start;
     justify-content: flex-start;
+    height: auto;
   }
-  ul {
-    display: none;
+
+  .Nav_elements ul {
+    max-height: 0; /* Start with max-height 0 */
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: max-height 0.1s ease, opacity 0.1s ease, transform 0.1s ease;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-
+    background-color: rgba(255, 255, 255,0.5);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    top: 95%;
+    right: 0;
+    width: 100%;
+   overflow: hidden;
   }
 
-  ul li {
-    padding: 50px;
+  .Nav_elements ul li{
+    width: 50%;
+    text-align: center;
+    border-radius: 8px;
   }
 
-  .Nav_elements ul.List_elements_open{
-    display: flex;
-    /* transform: translateY(10%); */
-transition: all 0.5s ease;
+  .Nav_elements ul li:nth-child(1){
+    border-bottom: 5px solid transparent;
+    transition: all 0.2s ease;
+  }
+  .Nav_elements ul li:nth-child(2){
+    border-bottom: 5px solid transparent;
+    transition: all 0.2s ease;
   }
 
+  .Nav_elements ul li:nth-child(1):hover{
+    border-bottom: 5px solid orange;
+  }
+
+  .Nav_elements ul li:nth-child(2):hover{
+    border-bottom: 5px solid orange;
+  }
+
+  .Nav_elements ul.List_elements_open {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 800px;
+    padding-bottom:  28% ;
+    background-color: rgba(255, 255, 255,0.8);
+  }
+
+  .Nav_elements ul li {
+    padding: 30px;
+  }
 }

@@ -5,7 +5,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../Context/Context";
 import avatar from "../../assets/avatar.jpg";
 import { ACTIONS } from "../Context/Actions";
-import { CiMenuBurger } from "react-icons/ci";
+import { TbMenu } from "react-icons/tb";
 import { motion } from "framer-motion";
 import { RxCross1 } from "react-icons/rx";
 
@@ -30,7 +30,7 @@ function NavBar() {
   // }, [user, navigate]);
 
   return (
-    <div className="Nav_elements">
+    <nav className="Nav_elements">
       <div>
         <img src={AchiversItLogo} alt="AchiversIt" />
       </div>
@@ -41,7 +41,7 @@ function NavBar() {
           </motion.div>
         ) : (
           <motion.div>
-            <CiMenuBurger size={50} style={{ margin: "10px" }} />
+            <TbMenu size={50} style={{ margin: "10px" }} />
           </motion.div>
         )}
       </section>
@@ -98,7 +98,7 @@ function NavBar() {
           </li>
         )}
       </motion.ul>
-    </div>
+    </nav>
   );
 }
 

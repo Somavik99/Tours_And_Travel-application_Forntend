@@ -12,6 +12,7 @@ import ButtonLoader from "../ButtonLoader/ButtonLoader";
 import BookingModal from "./BookingModal/BookingModal";
 import UserReview from "../UserReview/UserReview";
 import { motion } from "framer-motion";
+import { handleTokenExpiration } from "../Hooks/useTokenExpairyHook";
 // import {  } from "../Context/Context";
 
 function SingleTourData() {
@@ -77,25 +78,28 @@ function SingleTourData() {
           }
         );
 
+        await handleTokenExpiration(resp);
         const resultResponse = await resp.json();
 
         if (!resultResponse.ok) {
           console.error(resultResponse.message);
         }
-        setLoading(false);
-        setIsOpen(true);
-        setBookingState({
-          fullName: "",
-          phoneNumber: "",
-          bookingDate: "",
-          maximumPeople: 0,
-          bookingPrice: 0,
-          totalPrice: 0,
-        });
+
         return await resultResponse;
       }
     } catch (error) {
       console.error(error.message);
+    } finally {
+      setLoading(false);
+      setIsOpen(true);
+      setBookingState({
+        fullName: "",
+        phoneNumber: "",
+        bookingDate: "",
+        maximumPeople: 0,
+        bookingPrice: 0,
+        totalPrice: 0,
+      });
     }
   }
 
@@ -103,7 +107,7 @@ function SingleTourData() {
 
   return (
     <motion.div
-    style={{marginTop:"3.5%"}}
+      style={{ marginTop: "3.5%" }}
       initial={{ width: 0 }}
       animate={{ width: "100%" }}
       exit={{

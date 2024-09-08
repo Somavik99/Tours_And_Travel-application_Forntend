@@ -5,13 +5,14 @@ import { Rating } from "react-simple-star-rating";
 import { useState } from "react";
 import { initialReviews } from "./initialRview";
 import { IoMdStar } from "react-icons/io";
-// import ButtonLoader from "../ButtonLoader/ButtonLoader"; 
+import { handleTokenExpiration } from "../Hooks/useTokenExpairyHook";
 import ReviewLoader from "./ReviewLoader/ReviewLoader";
+// import ButtonLoader from "../ButtonLoader/ButtonLoader"; 
+
 
 function UserReview({ id, data}) {
   const [reviewState, setReviewState] = useState(initialReviews);
   const [loadingReview,setLoadingReview] = useState(false)
-
   function handleReviewRating(rating) {
     setReviewState((prev) => {
       return {
@@ -37,9 +38,15 @@ function UserReview({ id, data}) {
 
   async function handleSubmitReviews(e) {
     e.preventDefault();
-    const token = localStorage.getItem("token");
+   
     setLoadingReview(true);
     try {
+      const token = localStorage.getItem("token");
+
+      if(!token){
+        console.log("No token found...!Login again...!")
+      }
+
       const response = await fetch(`${BASE_URI}/review/tours/${id}/reviews`, {
         method: "POST",
         headers: {
@@ -51,6 +58,8 @@ function UserReview({ id, data}) {
           comment: reviewState.comment,
         }),
       });
+
+      await handleTokenExpiration(response)
 
       const reviewResult = await response.json();
       if (!reviewResult.ok) {

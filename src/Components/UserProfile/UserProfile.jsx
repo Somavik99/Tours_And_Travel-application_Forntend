@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./userProfile.css";
 import { BASE_URI } from "../URL/configFile";
 import ButtonLoader from "../ButtonLoader/ButtonLoader";
+import { handleTokenExpiration } from "../Hooks/useTokenExpairyHook";
 
 function UserProfile() {
   const [submitLoading, setSubmitLoading] = useState(false);
@@ -18,6 +19,8 @@ function UserProfile() {
     yes:"",
     no:""
   });
+
+  
 
   function handleNewTourSubmitChange(e) {
     const { name, value } = e.target;
@@ -87,20 +90,7 @@ function UserProfile() {
     }
   }
 
-  async function handleTokenExpiration(result) {
-    try {
-      if (result.status === 401 || result.status === 403) {
-        console.log(
-          "Token either invalid or expired. Redirecting to login...!"
-        );
-        localStorage.removeItem("token");
-        localStorage.removeItem("User");
-        window.location.href = "/logIn";
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
+ 
 
   return (
     <div>
